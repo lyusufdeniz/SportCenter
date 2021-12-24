@@ -1,0 +1,13 @@
+D:\Github Repo\SportCenter\SportCenter\bin\Debug\SportCenter.exe.config
+D:\Github Repo\SportCenter\SportCenter\bin\Debug\SportCenter.exe
+D:\Github Repo\SportCenter\SportCenter\bin\Debug\SportCenter.pdb
+D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.csproj.AssemblyReference.cache
+D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Properties.Resources.resources
+D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.csproj.GenerateResource.cache
+D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.csproj.CoreCompileInputs.cache
+D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.exe
+D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.pdb
+D:\Github Repo\SportCenter\SportCenter\bin\Debug\Bunifu_UI_v1.5.3.xml
+D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.exe.config
+D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.csproj.CopyComplete
+D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Login.resources
