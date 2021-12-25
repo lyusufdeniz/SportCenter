@@ -11,3 +11,4 @@ D:\Github Repo\SportCenter\SportCenter\bin\Debug\Bunifu_UI_v1.5.3.xml
 D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.exe.config
 D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.csproj.CopyComplete
 D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Login.resources
+D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Forms.ControlPanel.resources

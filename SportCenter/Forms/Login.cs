@@ -20,6 +20,7 @@ namespace SportCenter
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
+        Classes.DbCommands db = new Classes.DbCommands();
 
         private void Login_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
@@ -37,6 +38,47 @@ namespace SportCenter
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            if(uidBox.Text.Length==0||pwBox.Text.Length==0)
+            {
+                MessageBox.Show("Lütfen Kullanıcı Adı Ve Şifre Bölümlerini Doldurun!");
+            }
+            else
+            {
+                if(db.staffLogin(uidBox.Text,pwBox.Text))
+                {
+                    if(db.checkstaffPermission()==0)
+                    {
+                        MessageBox.Show("Sistem Yöneticisi Girişi Başarılı");
+                        Forms.ControlPanel ap = new Forms.ControlPanel();
+                        ap.Show();
+                        WindowState = System.Windows.Forms.FormWindowState.Minimized;
+                    }
+                    if (db.checkstaffPermission() == 1)
+                    {
+                        MessageBox.Show("Danışma Personeli Girişi Başarılı");
+                        WindowState = System.Windows.Forms.FormWindowState.Minimized;
+                    }
+                    if (db.checkstaffPermission() == 1)
+                    {
+                        MessageBox.Show("Personel Girişi Başarılı");
+                        WindowState = System.Windows.Forms.FormWindowState.Minimized;
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Hatalı Giriş");
+                }
+            }
+        }
+
+        private void minimize_Click(object sender, EventArgs e)
+        {
+            WindowState = System.Windows.Forms.FormWindowState.Minimized;
         }
     }
 }

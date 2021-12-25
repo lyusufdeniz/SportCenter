@@ -31,13 +31,15 @@ namespace SportCenter
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.label1 = new System.Windows.Forms.Label();
-            this.bunifuMaterialTextbox1 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.bunifuMaterialTextbox2 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.loginButton = new Bunifu.Framework.UI.BunifuTileButton();
-            this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
+            this.uidBox = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.pwBox = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.sifremiUnuttumButton = new Bunifu.Framework.UI.BunifuTileButton();
+            this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
+            this.loginButton = new Bunifu.Framework.UI.BunifuTileButton();
+            this.minimize = new Bunifu.Framework.UI.BunifuImageButton();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimize)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -51,84 +53,51 @@ namespace SportCenter
             this.label1.TabIndex = 0;
             this.label1.Text = "Spor Salonu Yönetim Sistemi";
             // 
-            // bunifuMaterialTextbox1
+            // uidBox
             // 
-            this.bunifuMaterialTextbox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.bunifuMaterialTextbox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.bunifuMaterialTextbox1.characterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.bunifuMaterialTextbox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMaterialTextbox1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuMaterialTextbox1.ForeColor = System.Drawing.Color.White;
-            this.bunifuMaterialTextbox1.HintForeColor = System.Drawing.Color.White;
-            this.bunifuMaterialTextbox1.HintText = "Kullanıcı Adınızı Girin";
-            this.bunifuMaterialTextbox1.isPassword = false;
-            this.bunifuMaterialTextbox1.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(199)))), ((int)(((byte)(172)))));
-            this.bunifuMaterialTextbox1.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(62)))), ((int)(((byte)(70)))));
-            this.bunifuMaterialTextbox1.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(62)))), ((int)(((byte)(70)))));
-            this.bunifuMaterialTextbox1.LineThickness = 4;
-            this.bunifuMaterialTextbox1.Location = new System.Drawing.Point(13, 145);
-            this.bunifuMaterialTextbox1.Margin = new System.Windows.Forms.Padding(4);
-            this.bunifuMaterialTextbox1.MaxLength = 32767;
-            this.bunifuMaterialTextbox1.Name = "bunifuMaterialTextbox1";
-            this.bunifuMaterialTextbox1.Size = new System.Drawing.Size(566, 57);
-            this.bunifuMaterialTextbox1.TabIndex = 1;
-            this.bunifuMaterialTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.uidBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.uidBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.uidBox.characterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.uidBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uidBox.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uidBox.ForeColor = System.Drawing.Color.White;
+            this.uidBox.HintForeColor = System.Drawing.Color.White;
+            this.uidBox.HintText = "Kullanıcı Adınızı Girin";
+            this.uidBox.isPassword = false;
+            this.uidBox.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(199)))), ((int)(((byte)(172)))));
+            this.uidBox.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(62)))), ((int)(((byte)(70)))));
+            this.uidBox.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(62)))), ((int)(((byte)(70)))));
+            this.uidBox.LineThickness = 4;
+            this.uidBox.Location = new System.Drawing.Point(13, 145);
+            this.uidBox.Margin = new System.Windows.Forms.Padding(4);
+            this.uidBox.MaxLength = 32767;
+            this.uidBox.Name = "uidBox";
+            this.uidBox.Size = new System.Drawing.Size(566, 57);
+            this.uidBox.TabIndex = 1;
+            this.uidBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
-            // bunifuMaterialTextbox2
+            // pwBox
             // 
-            this.bunifuMaterialTextbox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.bunifuMaterialTextbox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.bunifuMaterialTextbox2.characterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.bunifuMaterialTextbox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMaterialTextbox2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuMaterialTextbox2.ForeColor = System.Drawing.Color.White;
-            this.bunifuMaterialTextbox2.HintForeColor = System.Drawing.Color.White;
-            this.bunifuMaterialTextbox2.HintText = "Şifrenizi Girin";
-            this.bunifuMaterialTextbox2.isPassword = true;
-            this.bunifuMaterialTextbox2.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(199)))), ((int)(((byte)(172)))));
-            this.bunifuMaterialTextbox2.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(62)))), ((int)(((byte)(70)))));
-            this.bunifuMaterialTextbox2.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(62)))), ((int)(((byte)(70)))));
-            this.bunifuMaterialTextbox2.LineThickness = 4;
-            this.bunifuMaterialTextbox2.Location = new System.Drawing.Point(13, 270);
-            this.bunifuMaterialTextbox2.Margin = new System.Windows.Forms.Padding(4);
-            this.bunifuMaterialTextbox2.MaxLength = 32767;
-            this.bunifuMaterialTextbox2.Name = "bunifuMaterialTextbox2";
-            this.bunifuMaterialTextbox2.Size = new System.Drawing.Size(566, 57);
-            this.bunifuMaterialTextbox2.TabIndex = 2;
-            this.bunifuMaterialTextbox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // loginButton
-            // 
-            this.loginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(55)))));
-            this.loginButton.color = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(55)))));
-            this.loginButton.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(55)))));
-            this.loginButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.loginButton.Font = new System.Drawing.Font("Century Gothic", 15.75F);
-            this.loginButton.ForeColor = System.Drawing.Color.White;
-            this.loginButton.Image = ((System.Drawing.Image)(resources.GetObject("loginButton.Image")));
-            this.loginButton.ImagePosition = 20;
-            this.loginButton.ImageZoom = 50;
-            this.loginButton.LabelPosition = 41;
-            this.loginButton.LabelText = "Giriş";
-            this.loginButton.Location = new System.Drawing.Point(616, 90);
-            this.loginButton.Margin = new System.Windows.Forms.Padding(6);
-            this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(164, 128);
-            this.loginButton.TabIndex = 3;
-            // 
-            // bunifuImageButton1
-            // 
-            this.bunifuImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.Image")));
-            this.bunifuImageButton1.ImageActive = null;
-            this.bunifuImageButton1.Location = new System.Drawing.Point(723, 16);
-            this.bunifuImageButton1.Margin = new System.Windows.Forms.Padding(4);
-            this.bunifuImageButton1.Name = "bunifuImageButton1";
-            this.bunifuImageButton1.Size = new System.Drawing.Size(57, 47);
-            this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuImageButton1.TabIndex = 19;
-            this.bunifuImageButton1.TabStop = false;
-            this.bunifuImageButton1.Zoom = 10;
-            this.bunifuImageButton1.Click += new System.EventHandler(this.bunifuImageButton1_Click);
+            this.pwBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.pwBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.pwBox.characterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.pwBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.pwBox.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwBox.ForeColor = System.Drawing.Color.White;
+            this.pwBox.HintForeColor = System.Drawing.Color.White;
+            this.pwBox.HintText = "Şifrenizi Girin";
+            this.pwBox.isPassword = true;
+            this.pwBox.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(199)))), ((int)(((byte)(172)))));
+            this.pwBox.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(62)))), ((int)(((byte)(70)))));
+            this.pwBox.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(62)))), ((int)(((byte)(70)))));
+            this.pwBox.LineThickness = 4;
+            this.pwBox.Location = new System.Drawing.Point(13, 270);
+            this.pwBox.Margin = new System.Windows.Forms.Padding(4);
+            this.pwBox.MaxLength = 32767;
+            this.pwBox.Name = "pwBox";
+            this.pwBox.Size = new System.Drawing.Size(566, 57);
+            this.pwBox.TabIndex = 2;
+            this.pwBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // bunifuSeparator1
             // 
@@ -156,12 +125,60 @@ namespace SportCenter
             this.sifremiUnuttumButton.ImagePosition = 13;
             this.sifremiUnuttumButton.ImageZoom = 50;
             this.sifremiUnuttumButton.LabelPosition = 27;
-            this.sifremiUnuttumButton.LabelText = "Şifremi Unuttum ";
+            this.sifremiUnuttumButton.LabelText = "Şifremi Unuttum";
             this.sifremiUnuttumButton.Location = new System.Drawing.Point(616, 228);
             this.sifremiUnuttumButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sifremiUnuttumButton.Name = "sifremiUnuttumButton";
             this.sifremiUnuttumButton.Size = new System.Drawing.Size(164, 128);
             this.sifremiUnuttumButton.TabIndex = 29;
+            // 
+            // bunifuImageButton1
+            // 
+            this.bunifuImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.Image")));
+            this.bunifuImageButton1.ImageActive = null;
+            this.bunifuImageButton1.Location = new System.Drawing.Point(723, 16);
+            this.bunifuImageButton1.Margin = new System.Windows.Forms.Padding(4);
+            this.bunifuImageButton1.Name = "bunifuImageButton1";
+            this.bunifuImageButton1.Size = new System.Drawing.Size(57, 47);
+            this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bunifuImageButton1.TabIndex = 19;
+            this.bunifuImageButton1.TabStop = false;
+            this.bunifuImageButton1.Zoom = 10;
+            this.bunifuImageButton1.Click += new System.EventHandler(this.bunifuImageButton1_Click);
+            // 
+            // loginButton
+            // 
+            this.loginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(55)))));
+            this.loginButton.color = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(55)))));
+            this.loginButton.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(55)))));
+            this.loginButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.loginButton.Font = new System.Drawing.Font("Century Gothic", 15.75F);
+            this.loginButton.ForeColor = System.Drawing.Color.White;
+            this.loginButton.Image = ((System.Drawing.Image)(resources.GetObject("loginButton.Image")));
+            this.loginButton.ImagePosition = 20;
+            this.loginButton.ImageZoom = 50;
+            this.loginButton.LabelPosition = 41;
+            this.loginButton.LabelText = "Giriş";
+            this.loginButton.Location = new System.Drawing.Point(616, 90);
+            this.loginButton.Margin = new System.Windows.Forms.Padding(6);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(164, 128);
+            this.loginButton.TabIndex = 3;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
+            // 
+            // minimize
+            // 
+            this.minimize.Image = ((System.Drawing.Image)(resources.GetObject("minimize.Image")));
+            this.minimize.ImageActive = null;
+            this.minimize.Location = new System.Drawing.Point(658, 16);
+            this.minimize.Margin = new System.Windows.Forms.Padding(4);
+            this.minimize.Name = "minimize";
+            this.minimize.Size = new System.Drawing.Size(57, 47);
+            this.minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.minimize.TabIndex = 33;
+            this.minimize.TabStop = false;
+            this.minimize.Zoom = 10;
+            this.minimize.Click += new System.EventHandler(this.minimize_Click);
             // 
             // Login
             // 
@@ -169,12 +186,13 @@ namespace SportCenter
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(804, 373);
+            this.Controls.Add(this.minimize);
             this.Controls.Add(this.sifremiUnuttumButton);
             this.Controls.Add(this.bunifuSeparator1);
             this.Controls.Add(this.bunifuImageButton1);
             this.Controls.Add(this.loginButton);
-            this.Controls.Add(this.bunifuMaterialTextbox2);
-            this.Controls.Add(this.bunifuMaterialTextbox1);
+            this.Controls.Add(this.pwBox);
+            this.Controls.Add(this.uidBox);
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -183,6 +201,7 @@ namespace SportCenter
             this.Text = "Form1";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Login_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimize)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,12 +210,13 @@ namespace SportCenter
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox bunifuMaterialTextbox1;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox bunifuMaterialTextbox2;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox uidBox;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox pwBox;
         private Bunifu.Framework.UI.BunifuTileButton loginButton;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
         private Bunifu.Framework.UI.BunifuTileButton sifremiUnuttumButton;
+        private Bunifu.Framework.UI.BunifuImageButton minimize;
     }
 }
 
