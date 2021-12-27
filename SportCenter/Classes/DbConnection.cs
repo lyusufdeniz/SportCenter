@@ -10,7 +10,7 @@ namespace SportCenter.Classes
 {
     class DbConnection
     {
-        public static SqlConnection conn = new SqlConnection(@"Data Source=YUSUF\SQLEXPRESS;Initial Catalog=SportCenter;Integrated Security=True");
+        public static SqlConnection conn = new SqlConnection(@"Data Source=YUSUF\SQLEXPRESS;Initial Catalog=SportCenter;Integrated Security=True;MultipleActiveResultSets=true");
 
         public static void Connect()
         {

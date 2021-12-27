@@ -8,7 +8,15 @@ D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.csproj.CoreCompileI
 D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.exe
 D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.pdb
 D:\Github Repo\SportCenter\SportCenter\bin\Debug\Bunifu_UI_v1.5.3.xml
-D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.exe.config
 D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.csproj.CopyComplete
 D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Login.resources
 D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Forms.ControlPanel.resources
+D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Forms.YeniUye.resources
+D:\Github Repo\SportCenter\SportCenter\bin\Debug\Bunifu.UI.WinForms.BunifuDataGridView.xml
+D:\Github Repo\SportCenter\SportCenter\bin\Debug\Bunifu.UI.WinForms.BunifuRadioButton.xml
+D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Forms.ÜyeDüzenle.resources
+D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Forms.ÜyeBilgiDüzenle.resources
+D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Forms.ÜyeListesi.resources
+D:\Github Repo\SportCenter\SportCenter\bin\Debug\BouncyCastle.Crypto.dll
+D:\Github Repo\SportCenter\SportCenter\bin\Debug\itextsharp.dll
+D:\Github Repo\SportCenter\SportCenter\bin\Debug\itextsharp.xml

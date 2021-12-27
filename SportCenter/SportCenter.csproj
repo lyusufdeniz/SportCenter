@@ -33,10 +33,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.Core, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL" />
+    <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuRadioButton, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Bunifu.UI.WinForms.BunifuRadioButton.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu_UI_v1.5.3, Version=1.5.3.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9" />
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Management" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -64,6 +80,30 @@
     <Compile Include="Forms\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\YeniUye.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\YeniUye.Designer.cs">
+      <DependentUpon>YeniUye.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ÜyeBilgiDüzenle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ÜyeBilgiDüzenle.Designer.cs">
+      <DependentUpon>ÜyeBilgiDüzenle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ÜyeDüzenle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ÜyeDüzenle.Designer.cs">
+      <DependentUpon>ÜyeDüzenle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ÜyeListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ÜyeListesi.Designer.cs">
+      <DependentUpon>ÜyeListesi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\ControlPanel.resx">
@@ -71,6 +111,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\YeniUye.resx">
+      <DependentUpon>YeniUye.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ÜyeBilgiDüzenle.resx">
+      <DependentUpon>ÜyeBilgiDüzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ÜyeDüzenle.resx">
+      <DependentUpon>ÜyeDüzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ÜyeListesi.resx">
+      <DependentUpon>ÜyeListesi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -82,6 +134,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
