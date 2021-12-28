@@ -198,7 +198,7 @@ namespace SportCenter
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Giriş";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Login_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimize)).EndInit();

@@ -293,6 +293,27 @@ namespace SportCenter.Classes
 
             
         }
+        public bool restore(string dir)
+        {
+            try
+            {
+           SqlConnection conn = new SqlConnection(@"Data Source=YUSUF\SQLEXPRESS;Initial Catalog=master;Integrated Security=True;MultipleActiveResultSets=true");
+                 query = @"ALTER DATABASE SportCenter SET SINGLE_USER WITH ROLLBACK IMMEDIATE IF EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name =N'SportCenter') DROP DATABASE SportCenter RESTORE DATABASE SportCenter  FROM DISK = '" + dir + "' WITH  FILE = 1,  NOUNLOAD,  REPLACE,  STATS = 5 ALTER DATABASE SportCenter SET MULTI_USER";
+                conn.Open();
+                DbConnection.conn.ConnectionString = @"Data Source=YUSUF\SQLEXPRESS;Initial Catalog=SportCenter;Integrated Security=True;MultipleActiveResultSets=true";
+                cmd = new SqlCommand(query,conn);
+
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                return true;
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.ToString());
+                return false;
+
+            }
+        }
         public bool updateMember(string ad, string soyad, string tc, string eposta, string dtarihi, string kangrubu, int cinsiyet, int kilo, int boy, int memberID)
         {
 
@@ -345,8 +366,161 @@ namespace SportCenter.Classes
 
             }
         }
+        public List<string> getStaffCategory()
+        {
+            List<string> plans = new List<string>();
+            query = "SELECT * FROM StaffCategory";
+            cmd = new SqlCommand(query, DbConnection.conn);
+            DbConnection.Connect();
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                plans.Add(dr["categoryName"].ToString());
+
+            }
+            return plans;
 
 
+        }
+        public int getStaffCategoryID(string categoryName)
+        {
+            try
+            {
+                query = "SELECT * FROM StaffCategory where categoryName=@P1";
+                cmd = new SqlCommand(query, DbConnection.conn);
+                cmd.Parameters.AddWithValue("@P1", categoryName);
+                DbConnection.Connect();
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    int id = Int32.Parse(dr["categoryID"].ToString());
+
+                    DbConnection.Disconnect();
+                    dr.Close();
+                    return id;
+
+                }
+                else
+                {
+                    DbConnection.Disconnect();
+                    dr.Close();
+                    return -1;
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+                dr.Close();
+                return -1;
+            }
+
+
+        }
+        public bool insertStaffr(string ad, string soyad, string tc,string gsm, string eposta, string dtarihi, int categoryID,string uid,string pw)
+        {
+
+            try
+            {
+                DbConnection.Connect();
+                query = "INSERT INTO Staff(staffTC,staffName,staffSurname,staffbirthDate,staffGSM,staffCategory,staffuserName,staffPassword,staffeMail) values(@P1,@P2,@P3,@P4,@P5,@P6,@P7,@P8,@P9)";
+                cmd = new SqlCommand(query, DbConnection.conn);
+                cmd.Parameters.AddWithValue("@P1", tc);
+                cmd.Parameters.AddWithValue("@P2", ad);
+                cmd.Parameters.AddWithValue("@P3", soyad);
+                cmd.Parameters.AddWithValue("@P4", dtarihi);
+                cmd.Parameters.AddWithValue("@P5", gsm);
+                cmd.Parameters.AddWithValue("@P6", categoryID);
+                cmd.Parameters.AddWithValue("@P7", uid);
+                cmd.Parameters.AddWithValue("@P8", pw);
+                cmd.Parameters.AddWithValue("@P9", eposta);
+
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                switch (ex.Number)
+                {
+
+
+                    case 2627:
+                        MessageBox.Show("Aynı tc kimlik numarası veya kullanıcı adıyla kayıtlı bir personel bulunmaktadır");
+                        return false;
+                    case 2628:
+                        MessageBox.Show("Alanlar çok uzun doldurulmamalıdır");
+                        return false;
+                    case 547:
+                        MessageBox.Show("Tc rakamlardan oluşmalıdır ve çalışan 18 yaşından büyük olmalıdır");
+                        return false;
+                    default:
+                        MessageBox.Show(ex.ToString());
+                        return false;
+                }
+
+            }
+        }
+        //Stored procedure 2
+        public DataSet getStaffTableWithFilters(string category, string activeordeleted)
+        {
+
+            try
+            {
+                ds.Clear();
+
+                DbConnection.Connect();
+                query = "exec SP_FiltreliPersomelSorgu @P1,@P2";
+                da = new SqlDataAdapter(query, DbConnection.conn);
+                da.SelectCommand.Parameters.AddWithValue("@P1", category);
+                da.SelectCommand.Parameters.AddWithValue("@P2", activeordeleted);
+
+                da.Fill(ds, "Staff");
+                DbConnection.Disconnect();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return ds;
+            }
+
+
+        }
+        public string getstaffInfo(string colName, int memberID)
+        {
+            try
+            {
+                query = "SELECT *FROM Staff where staffID=@P1";
+                cmd = new SqlCommand(query, DbConnection.conn);
+                cmd.Parameters.AddWithValue("@P1", memberID);
+                DbConnection.Connect();
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    string value = dr[colName].ToString();
+
+
+                    DbConnection.Disconnect();
+                    dr.Close();
+                    return value;
+
+                }
+                else
+                {
+                    DbConnection.Disconnect();
+                    dr.Close();
+                    return "";
+                }
+
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+                dr.Close();
+                return "";
+            }
+        }
     }
 
     }

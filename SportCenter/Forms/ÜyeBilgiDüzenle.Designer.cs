@@ -49,7 +49,7 @@ namespace SportCenter.Forms
             this.soyadTextbox = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.adtextbox = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.üyedüzenle = new Bunifu.Framework.UI.BunifuTileButton();
-            this.uyeID = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.staffID = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.close)).BeginInit();
@@ -367,29 +367,29 @@ namespace SportCenter.Forms
             this.üyedüzenle.TabIndex = 77;
             this.üyedüzenle.Click += new System.EventHandler(this.üyedüzenle_Click);
             // 
-            // uyeID
+            // staffID
             // 
-            this.uyeID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.uyeID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.uyeID.characterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.uyeID.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.uyeID.Enabled = false;
-            this.uyeID.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uyeID.ForeColor = System.Drawing.Color.White;
-            this.uyeID.HintForeColor = System.Drawing.Color.White;
-            this.uyeID.HintText = "Üye No";
-            this.uyeID.isPassword = false;
-            this.uyeID.LineFocusedColor = System.Drawing.Color.Brown;
-            this.uyeID.LineIdleColor = System.Drawing.Color.IndianRed;
-            this.uyeID.LineMouseHoverColor = System.Drawing.Color.Blue;
-            this.uyeID.LineThickness = 3;
-            this.uyeID.Location = new System.Drawing.Point(103, 192);
-            this.uyeID.Margin = new System.Windows.Forms.Padding(4);
-            this.uyeID.MaxLength = 32767;
-            this.uyeID.Name = "uyeID";
-            this.uyeID.Size = new System.Drawing.Size(336, 45);
-            this.uyeID.TabIndex = 78;
-            this.uyeID.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.staffID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.staffID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.staffID.characterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.staffID.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.staffID.Enabled = false;
+            this.staffID.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffID.ForeColor = System.Drawing.Color.White;
+            this.staffID.HintForeColor = System.Drawing.Color.White;
+            this.staffID.HintText = "Üye No";
+            this.staffID.isPassword = false;
+            this.staffID.LineFocusedColor = System.Drawing.Color.Brown;
+            this.staffID.LineIdleColor = System.Drawing.Color.IndianRed;
+            this.staffID.LineMouseHoverColor = System.Drawing.Color.Blue;
+            this.staffID.LineThickness = 3;
+            this.staffID.Location = new System.Drawing.Point(103, 192);
+            this.staffID.Margin = new System.Windows.Forms.Padding(4);
+            this.staffID.MaxLength = 32767;
+            this.staffID.Name = "staffID";
+            this.staffID.Size = new System.Drawing.Size(336, 45);
+            this.staffID.TabIndex = 78;
+            this.staffID.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // label3
             // 
@@ -409,7 +409,7 @@ namespace SportCenter.Forms
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1178, 561);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.uyeID);
+            this.Controls.Add(this.staffID);
             this.Controls.Add(this.üyedüzenle);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.boyBox);
@@ -461,7 +461,7 @@ namespace SportCenter.Forms
         private Bunifu.Framework.UI.BunifuMaterialTextbox soyadTextbox;
         private Bunifu.Framework.UI.BunifuMaterialTextbox adtextbox;
         private Bunifu.Framework.UI.BunifuTileButton üyedüzenle;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox uyeID;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox staffID;
         private System.Windows.Forms.Label label3;
     }
 }

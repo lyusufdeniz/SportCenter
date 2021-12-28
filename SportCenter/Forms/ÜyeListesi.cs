@@ -1,18 +1,13 @@
-﻿using iTextSharp.text.pdf;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using Microsoft.Office.Interop.Excel;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using iTextSharp.text.pdf;
-using iTextSharp.text;
-using System.IO;
-using System.Data.Linq;
+
 
 namespace SportCenter.Forms
 {
@@ -97,52 +92,117 @@ namespace SportCenter.Forms
             }
         }
 
-        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+        private void savePDF_Click(object sender, EventArgs e)
         {
-            //Creating iTextSharp Table from the DataTable data
-            PdfPTable pdfTable = new PdfPTable(memberdgv.ColumnCount);
-            pdfTable.DefaultCell.Padding = 3;
-            pdfTable.WidthPercentage = 30;
-            pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
-            pdfTable.DefaultCell.BorderWidth = 1;
-
-            //Adding Header row
-            foreach (DataGridViewColumn column in memberdgv.Columns)
+            if (memberdgv.Rows.Count > 0)
             {
-                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
-                cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
-                pdfTable.AddCell(cell);
-            }
-
-            //Adding DataRow
-            foreach (DataGridViewRow row in memberdgv.Rows)
-            {
-                foreach (DataGridViewCell cell in row.Cells)
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "PDF (*.pdf)|*.pdf";
+                sfd.FileName = "Output.pdf";
+                bool fileError = false;
+                if (sfd.ShowDialog() == DialogResult.OK)
                 {
-                    pdfTable.AddCell(cell.Value.ToString());
+                    if (File.Exists(sfd.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(sfd.FileName);
+                        }
+                        catch (IOException ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
+                        }
+                    }
+                    if (!fileError)
+                    {
+                        try
+                        {
+                            PdfPTable pdfTable = new PdfPTable(memberdgv.Columns.Count);
+                            pdfTable.DefaultCell.Padding = 3;
+                            pdfTable.WidthPercentage = 100;
+                            pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
+                          
+
+                            foreach (DataGridViewColumn column in memberdgv.Columns)
+                            {
+                                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                                pdfTable.AddCell(cell);
+                            }
+
+                            foreach (DataGridViewRow row in memberdgv.Rows)
+                            {
+                                foreach (DataGridViewCell cell in row.Cells)
+                                {
+                                    pdfTable.AddCell(cell.Value.ToString());
+                                    
+                                }
+                            }
+
+                            using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
+                            {
+                                Document pdfDoc = new Document(PageSize.A3, 10f, 20f, 20f, 10f);
+                                PdfWriter.GetInstance(pdfDoc, stream);
+                                pdfDoc.Open();
+                                pdfDoc.Add(pdfTable);
+                                pdfDoc.Close();
+                                stream.Close();
+                            }
+
+                            MessageBox.Show("Pdf Olarak Dışarı Aktarıldı !!!", "Info");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Hata :" + ex.Message);
+                        }
+                    }
                 }
             }
-
-            //Exporting to PDF
-            string folderPath = "C:\\PDFs\\";
-            if (!Directory.Exists(folderPath))
+            else
             {
-                Directory.CreateDirectory(folderPath);
-            }
-            using (FileStream stream = new FileStream(folderPath + "DataGridViewExport.pdf", FileMode.Create))
-            {
-                Document pdfDoc = new Document(PageSize.A2, 10f, 10f, 10f, 0f);
-                PdfWriter.GetInstance(pdfDoc, stream);
-                pdfDoc.Open();
-                pdfDoc.Add(pdfTable);
-                pdfDoc.Close();
-                stream.Close();
+                MessageBox.Show("Dışa aktarılacak kayıt yok!", "Info");
             }
         }
 
-        private void bunifuFlatButton2_Click(object sender, EventArgs e)
+        private void saveExcel_Click(object sender, EventArgs e)
         {
-          
+            SaveFileDialog save = new SaveFileDialog();
+            save.OverwritePrompt = false;
+            save.Title = "Excel Dosyaları";
+            save.FileName = "output";
+            save.DefaultExt = "xlsx";
+            save.Filter = "xlsx Dosyaları (*.xlsx)|*.xlsx|Tüm Dosyalar(*.*)|*.*";
+
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+                Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+                Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+                Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+                app.Visible = true;
+                worksheet = workbook.Sheets["Sayfa1"];
+                worksheet = workbook.ActiveSheet;
+                worksheet.Name = "Excel Dışa Aktarım";
+                for (int i = 1; i < memberdgv.Columns.Count + 1; i++)
+                {
+                    worksheet.Cells[1, i] = memberdgv.Columns[i - 1].HeaderText;
+                }
+                for (int i = 0; i < memberdgv.Rows.Count - 1; i++)
+                {
+                    for (int j = 0; j < memberdgv.Columns.Count; j++)
+                    {
+                        worksheet.Cells[i + 2, j + 1] = memberdgv.Rows[i].Cells[j].Value.ToString();
+                    }
+                }
+                workbook.SaveAs(save.FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                app.Quit();
+            }
+        }
+
+        private void memberdgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int memberID = Int32.Parse(memberdgv.CurrentRow.Cells[0].Value.ToString());
+            ÜyeBilgiDüzenle duzenle = new ÜyeBilgiDüzenle(memberID);
+            duzenle.Show();
         }
 
         private void minimize_Click_1(object sender, EventArgs e)

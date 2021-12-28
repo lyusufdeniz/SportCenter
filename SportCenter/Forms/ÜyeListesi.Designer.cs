@@ -245,16 +245,17 @@ namespace SportCenter.Forms
             this.memberdgv.HeaderBackColor = System.Drawing.Color.DodgerBlue;
             this.memberdgv.HeaderBgColor = System.Drawing.Color.Empty;
             this.memberdgv.HeaderForeColor = System.Drawing.Color.White;
-            this.memberdgv.Location = new System.Drawing.Point(36, 158);
+            this.memberdgv.Location = new System.Drawing.Point(-1, 161);
             this.memberdgv.Name = "memberdgv";
             this.memberdgv.ReadOnly = true;
             this.memberdgv.RowHeadersVisible = false;
             this.memberdgv.RowHeadersWidth = 51;
             this.memberdgv.RowTemplate.Height = 40;
             this.memberdgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.memberdgv.Size = new System.Drawing.Size(1492, 608);
+            this.memberdgv.Size = new System.Drawing.Size(1500, 608);
             this.memberdgv.TabIndex = 57;
             this.memberdgv.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
+            this.memberdgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.memberdgv_CellDoubleClick);
             // 
             // bunifuSeparator1
             // 
@@ -274,7 +275,7 @@ namespace SportCenter.Forms
             // 
             this.minimize.Image = ((System.Drawing.Image)(resources.GetObject("minimize.Image")));
             this.minimize.ImageActive = null;
-            this.minimize.Location = new System.Drawing.Point(1350, 9);
+            this.minimize.Location = new System.Drawing.Point(1357, 9);
             this.minimize.Margin = new System.Windows.Forms.Padding(4);
             this.minimize.Name = "minimize";
             this.minimize.Size = new System.Drawing.Size(57, 47);
@@ -303,16 +304,16 @@ namespace SportCenter.Forms
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(232)))), ((int)(((byte)(235)))));
-            this.label1.Location = new System.Drawing.Point(39, 6);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(517, 50);
+            this.label1.Size = new System.Drawing.Size(226, 50);
             this.label1.TabIndex = 53;
-            this.label1.Text = "Düzenlenecek Üye Seçiniz";
+            this.label1.Text = "Üye Listesi";
             // 
             // savePDF
             // 
             this.savePDF.Active = false;
-            this.savePDF.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.savePDF.Activecolor = System.Drawing.Color.Firebrick;
             this.savePDF.BackColor = System.Drawing.Color.Firebrick;
             this.savePDF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.savePDF.BorderRadius = 0;
@@ -344,7 +345,7 @@ namespace SportCenter.Forms
             this.savePDF.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.savePDF.Textcolor = System.Drawing.Color.White;
             this.savePDF.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.savePDF.Click += new System.EventHandler(this.bunifuFlatButton1_Click);
+            this.savePDF.Click += new System.EventHandler(this.savePDF_Click);
             // 
             // saveExcel
             // 
@@ -381,7 +382,7 @@ namespace SportCenter.Forms
             this.saveExcel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.saveExcel.Textcolor = System.Drawing.Color.White;
             this.saveExcel.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveExcel.Click += new System.EventHandler(this.bunifuFlatButton2_Click);
+            this.saveExcel.Click += new System.EventHandler(this.saveExcel_Click);
             // 
             // ÜyeListesi
             // 

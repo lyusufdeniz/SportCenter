@@ -84,7 +84,7 @@ namespace SportCenter.Forms
            
             dogumtarihiBox.Value =DateTime.Parse( db.getMemberInfo("memberBirthDate", memberID));
 
-            uyeID.Text = memberID.ToString();
+            staffID.Text = memberID.ToString();
         }
 
         private void close_Click(object sender, EventArgs e)
@@ -106,16 +106,16 @@ namespace SportCenter.Forms
                     MessageBox.Show("Boş Alan Bırakmayın!");
                     return;
                 }
-                else
-                {
-                     ad = adtextbox.Text;
-                     soyad = soyadTextbox.Text;
-                     tc = tcTextbox.Text;
-                     eposta = eposstaTextbox.Text;
-                     dtarihi = dogumtarihiBox.Value.ToString("yyyy-MM-dd");
-                }
+              
+                
 
             }
+            ad = adtextbox.Text;
+            soyad = soyadTextbox.Text;
+            tc = tcTextbox.Text;
+            eposta = eposstaTextbox.Text;
+            dtarihi = dogumtarihiBox.Value.ToString("yyyy-MM-dd");
+            kangrubu = kangrubuBox.selectedValue;
             if (db.updateMember(ad,soyad,tc,eposta,dtarihi,kangrubu,cinsiyet,kilo,boy,memberID))
             {
                 MessageBox.Show("Üye Kaydedildi!");

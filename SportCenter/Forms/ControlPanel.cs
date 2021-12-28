@@ -85,7 +85,10 @@ namespace SportCenter.Forms
 
         private void vtgeriyükle_Click(object sender, EventArgs e)
         {
-
+            restorefileDialog.Title = "Geri Yüklenecek Veitabanı Girin";
+            restorefileDialog.Filter = "Backup Files | *.bak";
+            restorefileDialog.DefaultExt = ".bak";
+            restorefileDialog.ShowDialog();
         }
 
         private void vtyedekle_Click(object sender, EventArgs e)
@@ -93,6 +96,7 @@ namespace SportCenter.Forms
             saveBackupDialog.Title="Yedek Alınacak Konum Girin";
             saveBackupDialog.Filter = "Backup Files | *.bak";
             saveBackupDialog.DefaultExt = ".bak";
+            saveBackupDialog.FileName = "db_Backup";
             saveBackupDialog.ShowDialog();
             
         }
@@ -129,12 +133,14 @@ namespace SportCenter.Forms
 
         private void personellistesi_Click(object sender, EventArgs e)
         {
-
+            PersonelListesi pL = new PersonelListesi();
+            pL.Show();
         }
 
         private void yenipersonel_Click(object sender, EventArgs e)
         {
-
+            YeniPersonel yp = new YeniPersonel();
+            yp.Show();
         }
 
         private void üyelistesi_Click(object sender, EventArgs e)
@@ -145,8 +151,7 @@ namespace SportCenter.Forms
 
         private void üyedüzenle_Click(object sender, EventArgs e)
         {
-            ÜyeDüzenle üyeDüzenle = new ÜyeDüzenle();
-            üyeDüzenle.Show();
+           
         }
 
         private void üyeekle_Click(object sender, EventArgs e)
@@ -163,6 +168,14 @@ namespace SportCenter.Forms
                 MessageBox.Show(saveBackupDialog.FileName+" VERİTABANI YEDEKLENDİ ");
             }
 
+        }
+
+        private void restorefileDialog_FileOk(object sender, CancelEventArgs e)
+        {
+            if (db.restore(restorefileDialog.FileName))
+            {
+                MessageBox.Show(saveBackupDialog.FileName + " VERİTABANI GERİ YÜKLENDİ ");
+            }
         }
     }
 }
