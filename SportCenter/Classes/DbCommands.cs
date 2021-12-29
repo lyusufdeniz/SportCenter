@@ -184,7 +184,7 @@ namespace SportCenter.Classes
 
             }
         }
-        //stored procedure 1
+        //stored procedure 1 RAPORLAMA 1
         public DataSet getmemberTableWithFilters(string sex,string isActive)
         {
             
@@ -460,7 +460,7 @@ namespace SportCenter.Classes
 
             }
         }
-        //Stored procedure 2
+        //Stored procedure 2 RAPORLAMA 2
         public DataSet getStaffTableWithFilters(string category, string activeordeleted)
         {
 
@@ -521,6 +521,187 @@ namespace SportCenter.Classes
                 return "";
             }
         }
+        public bool deleteStaff(int staffID)
+        {
+            try
+            {
+                DbConnection.Connect();
+                query = "DELETE FROM Staff where staffID=@P1";
+                cmd = new SqlCommand(query, DbConnection.conn);
+                cmd.Parameters.AddWithValue("@P1", staffID);
+
+
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                switch (ex.Number)
+                {
+
+                    default:
+                        MessageBox.Show(ex.ToString());
+                        return false;
+                }
+
+            }
+        }
+        public bool updateStaff(string ad, string soyad, string tc, string eposta, string dtarihi, string uid, string pw,int staffID)
+        {
+
+            try
+            {
+                DbConnection.Connect();
+                query = "UPDATE Staff SET " +
+                    "staffTC=@P1,staffName=@P2," +
+                    "staffSurname=@P3,staffBirthDate=@P4," +
+                    "staffuserName=@P5,staffPassword=@P6," +
+                    "staffeMail=@P7 where staffID=@P8"
+
+
+                    ;
+                cmd = new SqlCommand(query, DbConnection.conn);
+                cmd.Parameters.AddWithValue("@P1", tc);
+                cmd.Parameters.AddWithValue("@P2", ad);
+                cmd.Parameters.AddWithValue("@P3", soyad);
+                cmd.Parameters.AddWithValue("@P4", dtarihi);
+                cmd.Parameters.AddWithValue("@P5", uid);
+                cmd.Parameters.AddWithValue("@P6", pw);
+                cmd.Parameters.AddWithValue("@P7", eposta);
+                cmd.Parameters.AddWithValue("@P8", staffID);
+       
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                switch (ex.Number)
+                {
+
+
+                    case 2627:
+                        MessageBox.Show("Aynı tc kimlik numarasıyla kayıtlı bir personel bulunmaktadır");
+                        return false;
+                    case 2628:
+                        MessageBox.Show("Alanlar çok uzun doldurulmamalıdır");
+                        return false;
+                    case 547:
+                        MessageBox.Show("Tc rakamlardan oluşmalıdır ve personel 18 yaşından büyük olmalıdır");
+                        return false;
+                    default:
+                        MessageBox.Show(ex.ToString());
+                        return false;
+                }
+
+            }
+        }
+        public List<string> getActivityList()
+        {
+            List<string> plans = new List<string>();
+            query = "SELECT * FROM Activity";
+            cmd = new SqlCommand(query, DbConnection.conn);
+            DbConnection.Connect();
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                plans.Add(dr["activityName"].ToString());
+
+            }
+            return plans;
+
+
+        }
+        public int getActivityID(string activityName)
+        {
+            try
+            {
+                query = "SELECT * FROM Activity where activityName=@P1";
+                cmd = new SqlCommand(query, DbConnection.conn);
+                cmd.Parameters.AddWithValue("@P1", activityName);
+                DbConnection.Connect();
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    int id = Int32.Parse(dr["activityID"].ToString());
+
+                    DbConnection.Disconnect();
+                    dr.Close();
+                    return id;
+
+                }
+                else
+                {
+                    DbConnection.Disconnect();
+                    dr.Close();
+                    return -1;
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+                dr.Close();
+                return -1;
+            }
+
+
+        }
+        public bool memberLog(int memberID,int activityID)
+        {
+            try
+            {
+                DbConnection.Connect();
+                query = "exec SP_AddMemberActivity @P1,@P2";
+                cmd = new SqlCommand(query, DbConnection.conn);
+                cmd.Parameters.AddWithValue("@P1", memberID);
+                cmd.Parameters.AddWithValue("@P2", activityID);
+
+
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                switch (ex.Number)
+                {
+
+                    default:
+                        MessageBox.Show(ex.ToString());
+                        return false;
+                }
+
+            }
+        }
+
+        public DataSet getLogTable(string activityID, string memberSex)
+        {
+
+            try
+            {
+                ds.Clear();
+
+                DbConnection.Connect();
+                query = "exec SP_FiltreliLogSorgu @P1,@P2";
+                da = new SqlDataAdapter(query, DbConnection.conn);
+                da.SelectCommand.Parameters.AddWithValue("@P1", activityID);
+                da.SelectCommand.Parameters.AddWithValue("@P2", memberSex);
+
+                da.Fill(ds, "memberLog");
+                DbConnection.Disconnect();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return ds;
+            }
+
+
+        }
+
+
     }
 
     }

@@ -254,6 +254,7 @@ namespace SportCenter.Forms
             this.dogumtarihiBox.Size = new System.Drawing.Size(379, 44);
             this.dogumtarihiBox.TabIndex = 62;
             this.dogumtarihiBox.Value = new System.DateTime(2021, 12, 25, 23, 9, 32, 37);
+            this.dogumtarihiBox.onValueChanged += new System.EventHandler(this.dogumtarihiBox_onValueChanged);
             // 
             // eposstaTextbox
             // 
@@ -349,9 +350,9 @@ namespace SportCenter.Forms
             // 
             // üyedüzenle
             // 
-            this.üyedüzenle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(171)))), ((int)(((byte)(196)))));
-            this.üyedüzenle.color = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(171)))), ((int)(((byte)(196)))));
-            this.üyedüzenle.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(97)))), ((int)(((byte)(161)))));
+            this.üyedüzenle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(95)))), ((int)(((byte)(153)))));
+            this.üyedüzenle.color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(95)))), ((int)(((byte)(153)))));
+            this.üyedüzenle.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(95)))), ((int)(((byte)(153)))));
             this.üyedüzenle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.üyedüzenle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.üyedüzenle.ForeColor = System.Drawing.Color.White;
@@ -360,7 +361,7 @@ namespace SportCenter.Forms
             this.üyedüzenle.ImageZoom = 50;
             this.üyedüzenle.LabelPosition = 29;
             this.üyedüzenle.LabelText = "Üye Düzenle";
-            this.üyedüzenle.Location = new System.Drawing.Point(947, 240);
+            this.üyedüzenle.Location = new System.Drawing.Point(949, 132);
             this.üyedüzenle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.üyedüzenle.Name = "üyedüzenle";
             this.üyedüzenle.Size = new System.Drawing.Size(205, 171);

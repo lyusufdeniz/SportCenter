@@ -103,12 +103,14 @@ namespace SportCenter.Forms
 
         private void bunifuTileButton4_Click(object sender, EventArgs e)
         {
-
+            UyeGirisCiikis girisCiikis = new UyeGirisCiikis();
+            girisCiikis.Show();
         }
 
         private void bunifuTileButton3_Click(object sender, EventArgs e)
         {
-
+            ÜyeLogListesi üyeLog = new ÜyeLogListesi();
+            üyeLog.Show();
         }
 
         private void bunifuTileButton13_Click(object sender, EventArgs e)
@@ -176,6 +178,14 @@ namespace SportCenter.Forms
             {
                 MessageBox.Show(saveBackupDialog.FileName + " VERİTABANI GERİ YÜKLENDİ ");
             }
+        }
+
+        private void bunifuImageButton1_Click(object sender, EventArgs e)
+        {
+            toplamuyelabel.Text = db.countMembers().ToString();
+            toplampersomellabel.Text = db.countStaff().ToString();
+
+            toplamgelirlabel.Text = db.totalIncome() + "\n ₺";
         }
     }
 }

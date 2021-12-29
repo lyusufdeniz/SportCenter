@@ -35,6 +35,13 @@ namespace SportCenter.Forms
             cinsiyet = cinsiyetBox.selectedIndex;
         }
 
+        private void dogumtarihiBox_onValueChanged(object sender, EventArgs e)
+        {
+            dtarihi = dogumtarihiBox.Value.ToString("yyyy-MM-dd");
+        }
+
+    
+
         private void kiloBox_onItemSelected(object sender, EventArgs e)
         {
             kilo = int.Parse(kiloBox.selectedValue.ToString());

@@ -112,6 +112,12 @@
     <Compile Include="Forms\PersonelListesi.Designer.cs">
       <DependentUpon>PersonelListesi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UyeGirisCiikis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UyeGirisCiikis.Designer.cs">
+      <DependentUpon>UyeGirisCiikis.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\YeniPersonel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +142,12 @@
     <Compile Include="Forms\ÜyeListesi.Designer.cs">
       <DependentUpon>ÜyeListesi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ÜyeLogListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ÜyeLogListesi.Designer.cs">
+      <DependentUpon>ÜyeLogListesi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\ControlPanel.resx">
@@ -150,6 +162,9 @@
     <EmbeddedResource Include="Forms\PersonelListesi.resx">
       <DependentUpon>PersonelListesi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UyeGirisCiikis.resx">
+      <DependentUpon>UyeGirisCiikis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\YeniPersonel.resx">
       <DependentUpon>YeniPersonel.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ÜyeListesi.resx">
       <DependentUpon>ÜyeListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ÜyeLogListesi.resx">
+      <DependentUpon>ÜyeLogListesi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -109,3 +109,5 @@ D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.csproj.ResolveComRe
 D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Forms.YeniPersonel.resources
 D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Forms.PersonelListesi.resources
 D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Forms.PersonelBilgiDuzenle.resources
+D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Forms.UyeGirisCiikis.resources
+D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Forms.ÜyeLogListesi.resources

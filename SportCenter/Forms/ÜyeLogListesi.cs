@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace SportCenter.Forms
 {
-    public partial class PersonelListesi : Form
+    public partial class ÜyeLogListesi : Form
     {
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -24,7 +24,7 @@ namespace SportCenter.Forms
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
         Classes.DbCommands db = new Classes.DbCommands();
-        string aktifpasif = "",categoryID="";
+        string sexFilter="",activityFilter="";
         private void Login_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -33,19 +33,13 @@ namespace SportCenter.Forms
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-        public PersonelListesi()
+        public ÜyeLogListesi()
         {
             InitializeComponent();
-            staffdgv.DataSource = db.getStaffTableWithFilters("", "").Tables[0].DefaultView;
-            for (int i = 0; i < db.getStaffCategory().Count(); i++)
+            for (int i = 0; i < db.getActivityList().Count(); i++)
             {
-                staffCategoryBox.AddItem(db.getStaffCategory()[i].ToString());
+                activityBox.AddItem(db.getActivityList()[i].ToString());
             }
-        }
-
-        private void close_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void minimize_Click(object sender, EventArgs e)
@@ -53,32 +47,53 @@ namespace SportCenter.Forms
             WindowState = System.Windows.Forms.FormWindowState.Minimized;
         }
 
-        private void PersonelListesi_Load(object sender, EventArgs e)
+        private void close_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+
+        private void ÜyeLogListesi_Load(object sender, EventArgs e)
+        {
+            logdgv.DataSource = db.getLogTable(activityFilter, sexFilter).Tables[0].DefaultView;
 
         }
+
         private void searchBox_OnValueChanged(object sender, EventArgs e)
         {
             if (adsoyadRadio.Checked)
             {
                 BindingSource bs = new BindingSource();
-                bs.DataSource = db.getStaffTableWithFilters("", "").Tables[0].DefaultView;
+                bs.DataSource = db.getmemberTableWithFilters("", "").Tables[0].DefaultView;
 
                 bs.Filter = "[Adı Soyadı] like '%" + searchBox.Text + "%' ";
-                staffdgv.DataSource = bs;
+                logdgv.DataSource = bs;
             }
             if (tcRadio.Checked)
             {
                 BindingSource bs = new BindingSource();
-                bs.DataSource = db.getStaffTableWithFilters("", "").Tables[0].DefaultView;
-                bs.Filter = "[TC NO] like '%" + searchBox.Text + "%' ";
-                staffdgv.DataSource = bs;
+                bs.DataSource = db.getmemberTableWithFilters("", "").Tables[0].DefaultView;
+                bs.Filter = "[Üye TC] like '%" + searchBox.Text + "%' ";
+                logdgv.DataSource = bs;
             }
+        }
+
+        private void activityBox_onItemSelected(object sender, EventArgs e)
+        {
+            if (activityBox.selectedIndex != 0)
+            {
+                activityFilter = db.getActivityID(activityBox.selectedValue).ToString();
+            }
+            else activityFilter = "";
+        }
+
+        private void filtrele_Click(object sender, EventArgs e)
+        {
+            logdgv.DataSource = db.getLogTable(activityFilter,sexFilter).Tables[0].DefaultView;
         }
 
         private void savePDF_Click(object sender, EventArgs e)
         {
-            if (staffdgv.Rows.Count > 0)
+            if (logdgv.Rows.Count > 0)
             {
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Filter = "PDF (*.pdf)|*.pdf";
@@ -102,19 +117,19 @@ namespace SportCenter.Forms
                     {
                         try
                         {
-                            PdfPTable pdfTable = new PdfPTable(staffdgv.Columns.Count);
+                            PdfPTable pdfTable = new PdfPTable(logdgv.Columns.Count);
                             pdfTable.DefaultCell.Padding = 3;
                             pdfTable.WidthPercentage = 100;
                             pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
 
 
-                            foreach (DataGridViewColumn column in staffdgv.Columns)
+                            foreach (DataGridViewColumn column in logdgv.Columns)
                             {
                                 PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
                                 pdfTable.AddCell(cell);
                             }
 
-                            foreach (DataGridViewRow row in staffdgv.Rows)
+                            foreach (DataGridViewRow row in logdgv.Rows)
                             {
                                 foreach (DataGridViewCell cell in row.Cells)
                                 {
@@ -166,15 +181,15 @@ namespace SportCenter.Forms
                 worksheet = workbook.Sheets["Sayfa1"];
                 worksheet = workbook.ActiveSheet;
                 worksheet.Name = "Excel Dışa Aktarım";
-                for (int i = 1; i < staffdgv.Columns.Count + 1; i++)
+                for (int i = 1; i < logdgv.Columns.Count + 1; i++)
                 {
-                    worksheet.Cells[1, i] = staffdgv.Columns[i - 1].HeaderText;
+                    worksheet.Cells[1, i] = logdgv.Columns[i - 1].HeaderText;
                 }
-                for (int i = 0; i < staffdgv.Rows.Count - 1; i++)
+                for (int i = 0; i < logdgv.Rows.Count - 1; i++)
                 {
-                    for (int j = 0; j < staffdgv.Columns.Count; j++)
+                    for (int j = 0; j < logdgv.Columns.Count; j++)
                     {
-                        worksheet.Cells[i + 2, j + 1] = staffdgv.Rows[i].Cells[j].Value.ToString();
+                        worksheet.Cells[i + 2, j + 1] = logdgv.Rows[i].Cells[j].Value.ToString();
                     }
                 }
                 workbook.SaveAs(save.FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
@@ -182,48 +197,20 @@ namespace SportCenter.Forms
             }
         }
 
-        private void staffCategoryBox_onItemSelected(object sender, EventArgs e)
+        private void bunifuDropdown1_onItemSelected(object sender, EventArgs e)
         {
-            if (staffCategoryBox.selectedIndex == 0)
+            if (cinsiyet.selectedIndex == 0)
             {
-                categoryID = "";
-                staffdgv.DataSource = db.getStaffTableWithFilters(categoryID, aktifpasif).Tables[0].DefaultView;
+                sexFilter = "";
             }
-            else
+            else if (cinsiyet.selectedIndex == 1)
             {
-                categoryID = db.getStaffCategoryID(staffCategoryBox.selectedValue).ToString();
-                staffdgv.DataSource = db.getStaffTableWithFilters(categoryID, aktifpasif).Tables[0].DefaultView;
+                sexFilter = "1";
             }
-
-        }
-
-        private void staffdgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int staffID = Int32.Parse(staffdgv.CurrentRow.Cells[0].Value.ToString());
-            PersonelBilgiDuzenle duzenle = new PersonelBilgiDuzenle(staffID);
-            duzenle.Show();
-            duzenle.FormClosed += duzenle_FormClosed;
-        }
-
-        private void silinmislerigosterCheck_OnChange(object sender, EventArgs e)
-        {
-            if (silinmislerigosterCheck.Checked)
+            else if (cinsiyet.selectedIndex == 2)
             {
-                aktifpasif = "1";
-                staffdgv.DataSource = db.getStaffTableWithFilters(categoryID, aktifpasif).Tables[0].DefaultView;
+                sexFilter = "0";
             }
-
-            else
-            {
-                aktifpasif = "";
-                staffdgv.DataSource = db.getStaffTableWithFilters(categoryID, aktifpasif).Tables[0].DefaultView;
-            }
-
-
-        }
-        private void duzenle_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            staffdgv.DataSource = db.getStaffTableWithFilters(categoryID, aktifpasif).Tables[0].DefaultView;
         }
     }
 }

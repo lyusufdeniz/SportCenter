@@ -203,11 +203,16 @@ namespace SportCenter.Forms
             int memberID = Int32.Parse(memberdgv.CurrentRow.Cells[0].Value.ToString());
             ÜyeBilgiDüzenle duzenle = new ÜyeBilgiDüzenle(memberID);
             duzenle.Show();
+            duzenle.FormClosed += duzenle_FormClosed;
         }
 
         private void minimize_Click_1(object sender, EventArgs e)
         {
             WindowState = System.Windows.Forms.FormWindowState.Minimized;
+        }
+        private void duzenle_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            memberdgv.DataSource = db.getmemberTableWithFilters(sexFilter, isActiveFilter).Tables[0].DefaultView;
         }
     }
 }
