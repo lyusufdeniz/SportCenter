@@ -133,7 +133,7 @@ namespace SportCenter.Forms
             this.searchBox.Margin = new System.Windows.Forms.Padding(4);
             this.searchBox.MaxLength = 32767;
             this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(283, 33);
+            this.searchBox.Size = new System.Drawing.Size(283, 46);
             this.searchBox.TabIndex = 62;
             this.searchBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.searchBox.OnValueChanged += new System.EventHandler(this.searchBox_OnValueChanged);
@@ -252,7 +252,7 @@ namespace SportCenter.Forms
             this.memberdgv.RowHeadersWidth = 51;
             this.memberdgv.RowTemplate.Height = 40;
             this.memberdgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.memberdgv.Size = new System.Drawing.Size(1500, 608);
+            this.memberdgv.Size = new System.Drawing.Size(1500, 497);
             this.memberdgv.TabIndex = 57;
             this.memberdgv.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
             this.memberdgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.memberdgv_CellDoubleClick);
@@ -339,7 +339,7 @@ namespace SportCenter.Forms
             this.savePDF.OnHovercolor = System.Drawing.Color.Firebrick;
             this.savePDF.OnHoverTextColor = System.Drawing.Color.White;
             this.savePDF.selected = false;
-            this.savePDF.Size = new System.Drawing.Size(321, 33);
+            this.savePDF.Size = new System.Drawing.Size(321, 31);
             this.savePDF.TabIndex = 68;
             this.savePDF.Text = "PDF OLARAK DIŞA AKTAR";
             this.savePDF.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -376,7 +376,7 @@ namespace SportCenter.Forms
             this.saveExcel.OnHovercolor = System.Drawing.Color.Green;
             this.saveExcel.OnHoverTextColor = System.Drawing.Color.White;
             this.saveExcel.selected = false;
-            this.saveExcel.Size = new System.Drawing.Size(321, 33);
+            this.saveExcel.Size = new System.Drawing.Size(321, 31);
             this.saveExcel.TabIndex = 69;
             this.saveExcel.Text = "EXCEL OLARAK DIŞARI AKTAR";
             this.saveExcel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -389,7 +389,7 @@ namespace SportCenter.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(1492, 772);
+            this.ClientSize = new System.Drawing.Size(1492, 664);
             this.Controls.Add(this.saveExcel);
             this.Controls.Add(this.savePDF);
             this.Controls.Add(this.filtrele);

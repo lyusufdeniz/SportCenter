@@ -115,7 +115,8 @@ namespace SportCenter.Forms
 
         private void bunifuTileButton13_Click(object sender, EventArgs e)
         {
-
+            ÜyelikPlanları plan = new ÜyelikPlanları();
+            plan.Show();
         }
 
         private void personelduzenle_Click(object sender, EventArgs e)
@@ -125,12 +126,14 @@ namespace SportCenter.Forms
 
         private void personelkategorileri_Click(object sender, EventArgs e)
         {
-
+            PersonelKategori kategori = new PersonelKategori();
+            kategori.Show();
         }
 
         private void aktiviteekle_Click(object sender, EventArgs e)
         {
-
+            DemirbasEkle demirbas = new DemirbasEkle();
+            demirbas.Show();
         }
 
         private void personellistesi_Click(object sender, EventArgs e)
@@ -186,6 +189,12 @@ namespace SportCenter.Forms
             toplampersomellabel.Text = db.countStaff().ToString();
 
             toplamgelirlabel.Text = db.totalIncome() + "\n ₺";
+        }
+
+        private void bunifuTileButton1_Click(object sender, EventArgs e)
+        {
+            DemirbasListesi demirbas = new DemirbasListesi();
+            demirbas.Show();
         }
     }
 }

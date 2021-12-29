@@ -111,3 +111,8 @@ D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Forms.PersonelListe
 D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Forms.PersonelBilgiDuzenle.resources
 D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Forms.UyeGirisCiikis.resources
 D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Forms.ÜyeLogListesi.resources
+D:\Github Repo\SportCenter\SportCenter\bin\Debug\Bunifu.UI.WinForms.BunifuSlider.xml
+D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Forms.ÜyelikPlanları.resources
+D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Forms.PersonelKategori.resources
+D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Forms.DemirbasEkle.resources
+D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Forms.DemirbasListesi.resources

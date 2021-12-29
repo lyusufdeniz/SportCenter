@@ -53,6 +53,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\Bunifu.UI.WinForms.BunifuRadioButton.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuSlider, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Bunifu.UI.WinForms.BunifuSlider.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu_UI_v1.5.3, Version=1.5.3.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9" />
     <Reference Include="DevExpress.Data.Desktop.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -88,11 +92,23 @@
   <ItemGroup>
     <Compile Include="Classes\DbCommands.cs" />
     <Compile Include="Classes\DbConnection.cs" />
+    <Compile Include="Forms\DemirbasEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DemirbasEkle.Designer.cs">
+      <DependentUpon>DemirbasEkle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ControlPanel.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ControlPanel.Designer.cs">
       <DependentUpon>ControlPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DemirbasListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DemirbasListesi.Designer.cs">
+      <DependentUpon>DemirbasListesi.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
@@ -105,6 +121,12 @@
     </Compile>
     <Compile Include="Forms\PersonelBilgiDuzenle.Designer.cs">
       <DependentUpon>PersonelBilgiDuzenle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PersonelKategori.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PersonelKategori.Designer.cs">
+      <DependentUpon>PersonelKategori.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\PersonelListesi.cs">
       <SubType>Form</SubType>
@@ -136,6 +158,12 @@
     <Compile Include="Forms\ÜyeBilgiDüzenle.Designer.cs">
       <DependentUpon>ÜyeBilgiDüzenle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ÜyelikPlanları.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ÜyelikPlanları.Designer.cs">
+      <DependentUpon>ÜyelikPlanları.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ÜyeListesi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,14 +178,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\DemirbasEkle.resx">
+      <DependentUpon>DemirbasEkle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ControlPanel.resx">
       <DependentUpon>ControlPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DemirbasListesi.resx">
+      <DependentUpon>DemirbasListesi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PersonelBilgiDuzenle.resx">
       <DependentUpon>PersonelBilgiDuzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PersonelKategori.resx">
+      <DependentUpon>PersonelKategori.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PersonelListesi.resx">
       <DependentUpon>PersonelListesi.cs</DependentUpon>
@@ -173,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ÜyeBilgiDüzenle.resx">
       <DependentUpon>ÜyeBilgiDüzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ÜyelikPlanları.resx">
+      <DependentUpon>ÜyelikPlanları.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ÜyeListesi.resx">
       <DependentUpon>ÜyeListesi.cs</DependentUpon>

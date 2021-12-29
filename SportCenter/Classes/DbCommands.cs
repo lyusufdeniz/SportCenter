@@ -20,6 +20,7 @@ namespace SportCenter.Classes
         //-1 hata döndürür böyle bir kullanıcı yok veya başka sql hatası
         //0 Sistem yöneticisi tüm özelliklere erişir
         //1 danışma personeli üye kaydı düzenleme vs işlemlere erişebilir
+        // 2 erişim yok
         public bool staffLogin(string username, string password)
         {
         
@@ -138,6 +139,108 @@ namespace SportCenter.Classes
             }
 
 
+        }
+        public string getMemberhipInfo(string colName, string membershipName)
+        {
+            try
+            {
+                query = "SELECT *FROM membershipPlan where planName=@P1";
+                cmd = new SqlCommand(query, DbConnection.conn);
+                cmd.Parameters.AddWithValue("@P1", membershipName);
+                DbConnection.Connect();
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    string value = dr[colName].ToString();
+
+
+                    DbConnection.Disconnect();
+                    dr.Close();
+                    return value;
+
+                }
+                else
+                {
+                    DbConnection.Disconnect();
+                    dr.Close();
+                    return "";
+                }
+
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+                dr.Close();
+                return "";
+            }
+        }
+        public bool updateMembershipPlan(string planname, string newname, string cost, string months)
+        {
+            try
+            {
+                DbConnection.Connect();
+                query = "UPDATE membershipPlan set planName=@P1,planCost=@P2,planMonth=@P3 where planName=@P4";
+                cmd = new SqlCommand(query, DbConnection.conn);
+                cmd.Parameters.AddWithValue("@P1", newname);
+                cmd.Parameters.AddWithValue("@P2", cost);
+                cmd.Parameters.AddWithValue("@P3", months);
+                cmd.Parameters.AddWithValue("@P4", planname);
+
+
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                switch (ex.Number)
+                {
+                    case 2627:
+                        MessageBox.Show("Aynı Ada ait 1 plan zaten bulunmakta!");
+                        return false;
+                    case 293:
+                        MessageBox.Show("Ücrete Sayısal Değer Giriniz");
+                        return false;
+                    default:
+                        MessageBox.Show(ex.ToString());
+                        return false;
+                }
+
+            }
+        }
+        public bool insertMembershipPlan(string planname,string cost, string months)
+        {
+            try
+            {
+                DbConnection.Connect();
+                query = "INSERT INTO membershipPlan VALUES(@P1,@P2,@P3)";
+                cmd = new SqlCommand(query, DbConnection.conn);
+                cmd.Parameters.AddWithValue("@P1", planname);
+                cmd.Parameters.AddWithValue("@P2", cost);
+                cmd.Parameters.AddWithValue("@P3", months);
+
+
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                switch (ex.Number)
+                {
+                    case 2627:
+                        MessageBox.Show("Aynı Ada ait 1 plan zaten bulunmakta!");
+                        return false;
+                    case 293:
+                        MessageBox.Show("Ücrete Sayısal Değer Giriniz");
+                        return false;
+                    default:
+                        MessageBox.Show(ex.ToString());
+                        return false;
+                }
+
+            }
         }
         public bool insertMember(string ad,string soyad,string tc,string eposta,string dtarihi,string kangrubu,string kayıttarihi,int cinsiyet,int kilo,int boy,int uyelikkodu)
         {
@@ -674,7 +777,6 @@ namespace SportCenter.Classes
 
             }
         }
-
         public DataSet getLogTable(string activityID, string memberSex)
         {
 
@@ -689,6 +791,173 @@ namespace SportCenter.Classes
                 da.SelectCommand.Parameters.AddWithValue("@P2", memberSex);
 
                 da.Fill(ds, "memberLog");
+                DbConnection.Disconnect();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return ds;
+            }
+
+
+        }
+        public bool insertnewStaffGroup(string groupname, int permission)
+        {
+            try
+            {
+                DbConnection.Connect();
+                query = "INSERT INTO StaffCategory VALUES(@P1,@P2)";
+                cmd = new SqlCommand(query, DbConnection.conn);
+                cmd.Parameters.AddWithValue("@P1", groupname);
+                cmd.Parameters.AddWithValue("@P2", permission);
+
+
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                switch (ex.Number)
+                {
+                    case 2627:
+                        MessageBox.Show("Aynı Ada ait 1 group zaten bulunmakta!");
+                        return false;
+                    default:
+                        MessageBox.Show(ex.ToString());
+                        return false;
+                }
+
+            }
+        }
+        public List<string> getStaffCategories()
+        {
+            List<string> category = new List<string>();
+            query = "SELECT * FROM StaffCategory";
+            cmd = new SqlCommand(query, DbConnection.conn);
+            DbConnection.Connect();
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                category.Add(dr["categoryName"].ToString());
+
+            }
+            return category;
+
+
+        }
+        public string getstaffcategoryInfo(string colName, string categoryName)
+        {
+            try
+            {
+                query = "SELECT *FROM StaffCategory where categoryName=@P1";
+                cmd = new SqlCommand(query, DbConnection.conn);
+                cmd.Parameters.AddWithValue("@P1", categoryName);
+                DbConnection.Connect();
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    string value = dr[colName].ToString();
+
+
+                    DbConnection.Disconnect();
+                    dr.Close();
+                    return value;
+
+                }
+                else
+                {
+                    DbConnection.Disconnect();
+                    dr.Close();
+                    return "";
+                }
+
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+                dr.Close();
+                return "";
+            }
+        }
+        public bool updateStaffGroup(string groupname,string groupnewname, int permission)
+        {
+            try
+            {
+                DbConnection.Connect();
+                query = "UPDATE StaffCategory  SET categoryName=@P1,categoryPermission=@P2 WHERE categoryName=@P3";
+                cmd = new SqlCommand(query, DbConnection.conn);
+                cmd.Parameters.AddWithValue("@P1", groupnewname);
+                cmd.Parameters.AddWithValue("@P2", permission);
+                cmd.Parameters.AddWithValue("@P3", groupname);
+
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                switch (ex.Number)
+                {
+                    case 2627:
+                        MessageBox.Show("Aynı Ada ait 1 group zaten bulunmakta!");
+                        return false;
+                    default:
+                        MessageBox.Show(ex.ToString());
+                        return false;
+                }
+
+            }
+        }
+        public bool insertInventory(string inventoryname,string inventoryprice,string inventoryquantity, string activity)
+        {
+            try
+            {
+                DbConnection.Connect();
+                query = "INSERT INTO Inventory VALUES(@P1,(SELECT activityID FROM Activity where activityName=@P2),@P3,@P4)";
+                cmd = new SqlCommand(query, DbConnection.conn);
+                cmd.Parameters.AddWithValue("@P1", inventoryname);
+                cmd.Parameters.AddWithValue("@P2", activity);
+                cmd.Parameters.AddWithValue("@P3", inventoryquantity);
+                cmd.Parameters.AddWithValue("@P4", inventoryprice);
+
+
+
+
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                switch (ex.Number)
+                {
+                    case 2627:
+                        MessageBox.Show("Aynı Ada ait 1 group zaten bulunmakta!");
+                        return false;
+                    default:
+                        MessageBox.Show(ex.ToString());
+                        return false;
+                }
+
+            }
+        }
+
+        public DataSet getInventoryList()
+        {
+
+            try
+            {
+                ds.Clear();
+
+                DbConnection.Connect();
+                query = "EXEC SP_FiltreliDemirbasSorgu";
+                da = new SqlDataAdapter(query, DbConnection.conn);
+
+
+                da.Fill(ds, "inventoryTable");
                 DbConnection.Disconnect();
                 return ds;
             }

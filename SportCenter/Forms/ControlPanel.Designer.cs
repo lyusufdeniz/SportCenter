@@ -38,6 +38,10 @@ namespace SportCenter.Forms
             this.toplampersomellabel = new System.Windows.Forms.Label();
             this.toplamgelir = new Bunifu.Framework.UI.BunifuTileButton();
             this.toplamgelirlabel = new System.Windows.Forms.Label();
+            this.saveBackupDialog = new System.Windows.Forms.SaveFileDialog();
+            this.restorefileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
+            this.bunifuTileButton1 = new Bunifu.Framework.UI.BunifuTileButton();
             this.vtyedekle = new Bunifu.Framework.UI.BunifuTileButton();
             this.bunifuTileButton13 = new Bunifu.Framework.UI.BunifuTileButton();
             this.vtgeriyükle = new Bunifu.Framework.UI.BunifuTileButton();
@@ -51,13 +55,9 @@ namespace SportCenter.Forms
             this.üyeekle = new Bunifu.Framework.UI.BunifuTileButton();
             this.minimize = new Bunifu.Framework.UI.BunifuImageButton();
             this.close = new Bunifu.Framework.UI.BunifuImageButton();
-            this.saveBackupDialog = new System.Windows.Forms.SaveFileDialog();
-            this.restorefileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.bunifuTileButton1 = new Bunifu.Framework.UI.BunifuTileButton();
-            this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.close)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuSeparator1
@@ -147,7 +147,7 @@ namespace SportCenter.Forms
             this.toplampersomellabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.toplampersomellabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toplampersomellabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(232)))), ((int)(((byte)(235)))));
-            this.toplampersomellabel.Location = new System.Drawing.Point(438, 477);
+            this.toplampersomellabel.Location = new System.Drawing.Point(438, 468);
             this.toplampersomellabel.Name = "toplampersomellabel";
             this.toplampersomellabel.Size = new System.Drawing.Size(420, 139);
             this.toplampersomellabel.TabIndex = 53;
@@ -189,6 +189,49 @@ namespace SportCenter.Forms
             this.toplamgelirlabel.Text = "000 ₺";
             this.toplamgelirlabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.toplamgelirlabel.Click += new System.EventHandler(this.toplamgelirlabel_Click);
+            // 
+            // saveBackupDialog
+            // 
+            this.saveBackupDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.saveBackupDialog_FileOk);
+            // 
+            // restorefileDialog
+            // 
+            this.restorefileDialog.FileName = "openFileDialog1";
+            this.restorefileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.restorefileDialog_FileOk);
+            // 
+            // bunifuImageButton1
+            // 
+            this.bunifuImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.Image")));
+            this.bunifuImageButton1.ImageActive = null;
+            this.bunifuImageButton1.Location = new System.Drawing.Point(1107, 9);
+            this.bunifuImageButton1.Margin = new System.Windows.Forms.Padding(4);
+            this.bunifuImageButton1.Name = "bunifuImageButton1";
+            this.bunifuImageButton1.Size = new System.Drawing.Size(57, 47);
+            this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bunifuImageButton1.TabIndex = 57;
+            this.bunifuImageButton1.TabStop = false;
+            this.bunifuImageButton1.Zoom = 10;
+            this.bunifuImageButton1.Click += new System.EventHandler(this.bunifuImageButton1_Click);
+            // 
+            // bunifuTileButton1
+            // 
+            this.bunifuTileButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(92)))), ((int)(((byte)(56)))));
+            this.bunifuTileButton1.color = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(92)))), ((int)(((byte)(56)))));
+            this.bunifuTileButton1.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(61)))), ((int)(((byte)(46)))));
+            this.bunifuTileButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuTileButton1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuTileButton1.ForeColor = System.Drawing.Color.White;
+            this.bunifuTileButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuTileButton1.Image")));
+            this.bunifuTileButton1.ImagePosition = 14;
+            this.bunifuTileButton1.ImageZoom = 50;
+            this.bunifuTileButton1.LabelPosition = 29;
+            this.bunifuTileButton1.LabelText = "Demirbaş Listesi";
+            this.bunifuTileButton1.Location = new System.Drawing.Point(654, 275);
+            this.bunifuTileButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuTileButton1.Name = "bunifuTileButton1";
+            this.bunifuTileButton1.Size = new System.Drawing.Size(205, 171);
+            this.bunifuTileButton1.TabIndex = 56;
+            this.bunifuTileButton1.Click += new System.EventHandler(this.bunifuTileButton1_Click);
             // 
             // vtyedekle
             // 
@@ -322,7 +365,7 @@ namespace SportCenter.Forms
             this.personelkategorileri.ImagePosition = 13;
             this.personelkategorileri.ImageZoom = 50;
             this.personelkategorileri.LabelPosition = 26;
-            this.personelkategorileri.LabelText = "Personel Kategoileri";
+            this.personelkategorileri.LabelText = "P.Yetkilendirme";
             this.personelkategorileri.Location = new System.Drawing.Point(227, 275);
             this.personelkategorileri.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.personelkategorileri.Name = "personelkategorileri";
@@ -438,48 +481,6 @@ namespace SportCenter.Forms
             this.close.Zoom = 10;
             this.close.Click += new System.EventHandler(this.close_Click);
             // 
-            // saveBackupDialog
-            // 
-            this.saveBackupDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.saveBackupDialog_FileOk);
-            // 
-            // restorefileDialog
-            // 
-            this.restorefileDialog.FileName = "openFileDialog1";
-            this.restorefileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.restorefileDialog_FileOk);
-            // 
-            // bunifuTileButton1
-            // 
-            this.bunifuTileButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(92)))), ((int)(((byte)(56)))));
-            this.bunifuTileButton1.color = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(92)))), ((int)(((byte)(56)))));
-            this.bunifuTileButton1.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(61)))), ((int)(((byte)(46)))));
-            this.bunifuTileButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuTileButton1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuTileButton1.ForeColor = System.Drawing.Color.White;
-            this.bunifuTileButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuTileButton1.Image")));
-            this.bunifuTileButton1.ImagePosition = 14;
-            this.bunifuTileButton1.ImageZoom = 50;
-            this.bunifuTileButton1.LabelPosition = 29;
-            this.bunifuTileButton1.LabelText = "Demirbaş Listesi";
-            this.bunifuTileButton1.Location = new System.Drawing.Point(654, 275);
-            this.bunifuTileButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.bunifuTileButton1.Name = "bunifuTileButton1";
-            this.bunifuTileButton1.Size = new System.Drawing.Size(205, 171);
-            this.bunifuTileButton1.TabIndex = 56;
-            // 
-            // bunifuImageButton1
-            // 
-            this.bunifuImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.Image")));
-            this.bunifuImageButton1.ImageActive = null;
-            this.bunifuImageButton1.Location = new System.Drawing.Point(1107, 9);
-            this.bunifuImageButton1.Margin = new System.Windows.Forms.Padding(4);
-            this.bunifuImageButton1.Name = "bunifuImageButton1";
-            this.bunifuImageButton1.Size = new System.Drawing.Size(57, 47);
-            this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuImageButton1.TabIndex = 57;
-            this.bunifuImageButton1.TabStop = false;
-            this.bunifuImageButton1.Zoom = 10;
-            this.bunifuImageButton1.Click += new System.EventHandler(this.bunifuImageButton1_Click);
-            // 
             // ControlPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -515,9 +516,9 @@ namespace SportCenter.Forms
             this.Text = "Kontrol Paneli";
             this.Load += new System.EventHandler(this.ControlPanel_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Login_MouseDown);
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.close)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
