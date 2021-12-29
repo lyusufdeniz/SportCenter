@@ -53,18 +53,20 @@ namespace SportCenter
                     if(db.checkstaffPermission()==0)
                     {
                         MessageBox.Show("Sistem Yöneticisi Girişi Başarılı");
-                        Forms.ControlPanel ap = new Forms.ControlPanel();
+                        Forms.ControlPanel ap = new Forms.ControlPanel(0);
                         ap.Show();
                         WindowState = System.Windows.Forms.FormWindowState.Minimized;
                     }
                     if (db.checkstaffPermission() == 1)
                     {
-                        MessageBox.Show("Danışma Personeli Girişi Başarılı");
+                        MessageBox.Show(" Personel Girişi Başarılı");
+                        Forms.ControlPanel ap = new Forms.ControlPanel(1);
+                        ap.Show();
                         WindowState = System.Windows.Forms.FormWindowState.Minimized;
                     }
-                    if (db.checkstaffPermission() == 1)
+                    if (db.checkstaffPermission() == 2)
                     {
-                        MessageBox.Show("Personel Girişi Başarılı");
+                        MessageBox.Show("Personelin Sisteme Giriş yetkisi bulunmuyor hata olduğunu düşünüyorsanız sistem yöneticisine başvurun");
                         WindowState = System.Windows.Forms.FormWindowState.Minimized;
                     }
 

@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace SportCenter.Forms
 {
-    public partial class ÜyeLogListesi : Form
+    public partial class Gelirler : Form
     {
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -23,8 +23,7 @@ namespace SportCenter.Forms
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
-        Classes.DbCommands db = new Classes.DbCommands();
-        string sexFilter="",activityFilter="";
+      
         private void Login_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -33,13 +32,16 @@ namespace SportCenter.Forms
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-        public ÜyeLogListesi()
+        Classes.DbCommands db = new Classes.DbCommands();
+        public Gelirler()
         {
             InitializeComponent();
-            for (int i = 0; i < db.getActivityList().Count(); i++)
-            {
-                activityBox.AddItem(db.getActivityList()[i].ToString());
-            }
+            gelirlerdgv.DataSource = db.getPayments().Tables[0].DefaultView;
+        }
+
+        private void Gelirler_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void minimize_Click(object sender, EventArgs e)
@@ -52,48 +54,28 @@ namespace SportCenter.Forms
             this.Close();
         }
 
-        private void ÜyeLogListesi_Load(object sender, EventArgs e)
-        {
-            logdgv.DataSource = db.getLogTable(activityFilter, sexFilter).Tables[0].DefaultView;
-
-        }
-
         private void searchBox_OnValueChanged(object sender, EventArgs e)
         {
             if (adsoyadRadio.Checked)
             {
                 BindingSource bs = new BindingSource();
-                bs.DataSource = db.getLogTable("", "").Tables[0].DefaultView;
+                bs.DataSource = db.getPayments().Tables[0].DefaultView;
 
-                bs.Filter = "[Adi Soyadi] like '%" + searchBox.Text + "%' ";
-                logdgv.DataSource = bs;
+                bs.Filter = "[UYE ADI] like '%" + searchBox.Text + "%' ";
+                gelirlerdgv.DataSource = bs;
             }
             if (tcRadio.Checked)
             {
                 BindingSource bs = new BindingSource();
-                bs.DataSource = db.getLogTable("", "").Tables[0].DefaultView;
-                bs.Filter = "[Uye TC] like '%" + searchBox.Text + "%' ";
-                logdgv.DataSource = bs;
+                bs.DataSource = db.getPayments().Tables[0].DefaultView;
+                bs.Filter = "[UYE TC NUMARASI] like '%" + searchBox.Text + "%' ";
+                gelirlerdgv.DataSource = bs;
             }
-        }
-
-        private void activityBox_onItemSelected(object sender, EventArgs e)
-        {
-            if (activityBox.selectedIndex != 0)
-            {
-                activityFilter = db.getActivityID(activityBox.selectedValue).ToString();
-            }
-            else activityFilter = "";
-        }
-
-        private void filtrele_Click(object sender, EventArgs e)
-        {
-            logdgv.DataSource = db.getLogTable(activityFilter,sexFilter).Tables[0].DefaultView;
         }
 
         private void savePDF_Click(object sender, EventArgs e)
         {
-            if (logdgv.Rows.Count > 0)
+            if (gelirlerdgv.Rows.Count > 0)
             {
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Filter = "PDF (*.pdf)|*.pdf";
@@ -117,19 +99,19 @@ namespace SportCenter.Forms
                     {
                         try
                         {
-                            PdfPTable pdfTable = new PdfPTable(logdgv.Columns.Count);
+                            PdfPTable pdfTable = new PdfPTable(gelirlerdgv.Columns.Count);
                             pdfTable.DefaultCell.Padding = 3;
                             pdfTable.WidthPercentage = 100;
                             pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
 
 
-                            foreach (DataGridViewColumn column in logdgv.Columns)
+                            foreach (DataGridViewColumn column in gelirlerdgv.Columns)
                             {
                                 PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
                                 pdfTable.AddCell(cell);
                             }
 
-                            foreach (DataGridViewRow row in logdgv.Rows)
+                            foreach (DataGridViewRow row in gelirlerdgv.Rows)
                             {
                                 foreach (DataGridViewCell cell in row.Cells)
                                 {
@@ -181,35 +163,19 @@ namespace SportCenter.Forms
                 worksheet = workbook.Sheets["Sayfa1"];
                 worksheet = workbook.ActiveSheet;
                 worksheet.Name = "Excel Dışa Aktarım";
-                for (int i = 1; i < logdgv.Columns.Count + 1; i++)
+                for (int i = 1; i < gelirlerdgv.Columns.Count + 1; i++)
                 {
-                    worksheet.Cells[1, i] = logdgv.Columns[i - 1].HeaderText;
+                    worksheet.Cells[1, i] = gelirlerdgv.Columns[i - 1].HeaderText;
                 }
-                for (int i = 0; i < logdgv.Rows.Count - 1; i++)
+                for (int i = 0; i < gelirlerdgv.Rows.Count - 1; i++)
                 {
-                    for (int j = 0; j < logdgv.Columns.Count; j++)
+                    for (int j = 0; j < gelirlerdgv.Columns.Count; j++)
                     {
-                        worksheet.Cells[i + 2, j + 1] = logdgv.Rows[i].Cells[j].Value.ToString();
+                        worksheet.Cells[i + 2, j + 1] = gelirlerdgv.Rows[i].Cells[j].Value.ToString();
                     }
                 }
                 workbook.SaveAs(save.FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
                 app.Quit();
-            }
-        }
-
-        private void bunifuDropdown1_onItemSelected(object sender, EventArgs e)
-        {
-            if (cinsiyet.selectedIndex == 0)
-            {
-                sexFilter = "";
-            }
-            else if (cinsiyet.selectedIndex == 1)
-            {
-                sexFilter = "1";
-            }
-            else if (cinsiyet.selectedIndex == 2)
-            {
-                sexFilter = "0";
             }
         }
     }

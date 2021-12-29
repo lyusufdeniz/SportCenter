@@ -201,7 +201,7 @@ namespace SportCenter.Forms
             this.ekleAyBox.Name = "ekleAyBox";
             this.ekleAyBox.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(81)))), ((int)(((byte)(112)))));
             this.ekleAyBox.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(81)))), ((int)(((byte)(112)))));
-            this.ekleAyBox.selectedIndex = -1;
+            this.ekleAyBox.selectedIndex = 0;
             this.ekleAyBox.Size = new System.Drawing.Size(328, 43);
             this.ekleAyBox.TabIndex = 43;
             // 
@@ -258,7 +258,7 @@ namespace SportCenter.Forms
             this.guncelleSecPlanBox.Name = "guncelleSecPlanBox";
             this.guncelleSecPlanBox.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(81)))), ((int)(((byte)(112)))));
             this.guncelleSecPlanBox.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(81)))), ((int)(((byte)(112)))));
-            this.guncelleSecPlanBox.selectedIndex = -1;
+            this.guncelleSecPlanBox.selectedIndex = 0;
             this.guncelleSecPlanBox.Size = new System.Drawing.Size(328, 43);
             this.guncelleSecPlanBox.TabIndex = 50;
             this.guncelleSecPlanBox.onItemSelected += new System.EventHandler(this.guncelleSecPlanBox_onItemSelected);
@@ -323,7 +323,7 @@ namespace SportCenter.Forms
             this.guncelleAyBox.Name = "guncelleAyBox";
             this.guncelleAyBox.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(81)))), ((int)(((byte)(112)))));
             this.guncelleAyBox.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(81)))), ((int)(((byte)(112)))));
-            this.guncelleAyBox.selectedIndex = -1;
+            this.guncelleAyBox.selectedIndex = 0;
             this.guncelleAyBox.Size = new System.Drawing.Size(328, 43);
             this.guncelleAyBox.TabIndex = 53;
             // 

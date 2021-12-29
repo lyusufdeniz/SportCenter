@@ -147,7 +147,7 @@
         G02jR9eHwwW/ftZrsunpeAWVesO/pqampiYeQ0P/Aq7LRtedGij2AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="bunifuTileButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="demirbaslistesi.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAABSVJREFUeF7t
         mkvIVVUYhn8HkZY0i4QgTEpnFg3yUljSxCLL0u73pBCiQVQ4SA01HDQpu5cWSDYIKYjIJlEUZRFSE6My
@@ -226,7 +226,7 @@
         Jl53urHRrkQbuc1TNZs2/R+qdaQaBKXPKQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="bunifuTileButton13.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="planislemleri.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAPAAAADwCAYAAAA+VemSAAAABGdBTUEAALGPC/xhBQAADxpJREFUeF7t
         3VuopXUZx3HH0TzX6EBJBJZlh6uCSvKcKEY3horQTZKSlJcZqUh0BA0PXRURFVmXJqYZlYfSzKCoq6A0
@@ -472,7 +472,7 @@
         SUVORK5CYII=
 </value>
   </data>
-  <data name="personelkategorileri.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="yetkilendirmeislemleri.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAABERJREFUeF7t
         mt2LFmUYxhdtRQlWyg+EdoMgoqADNZBoCYxOQuggKNaDOkwECQIPkv4D9dw9CkGMhEqEUuggV9uKog37

@@ -41,14 +41,14 @@ namespace SportCenter.Forms
             this.saveBackupDialog = new System.Windows.Forms.SaveFileDialog();
             this.restorefileDialog = new System.Windows.Forms.OpenFileDialog();
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
-            this.bunifuTileButton1 = new Bunifu.Framework.UI.BunifuTileButton();
+            this.demirbaslistesi = new Bunifu.Framework.UI.BunifuTileButton();
             this.vtyedekle = new Bunifu.Framework.UI.BunifuTileButton();
-            this.bunifuTileButton13 = new Bunifu.Framework.UI.BunifuTileButton();
+            this.planislemleri = new Bunifu.Framework.UI.BunifuTileButton();
             this.vtgeriyükle = new Bunifu.Framework.UI.BunifuTileButton();
             this.aktiviteekle = new Bunifu.Framework.UI.BunifuTileButton();
             this.üyelistesi = new Bunifu.Framework.UI.BunifuTileButton();
             this.personellistesi = new Bunifu.Framework.UI.BunifuTileButton();
-            this.personelkategorileri = new Bunifu.Framework.UI.BunifuTileButton();
+            this.yetkilendirmeislemleri = new Bunifu.Framework.UI.BunifuTileButton();
             this.yenipersonel = new Bunifu.Framework.UI.BunifuTileButton();
             this.bunifuTileButton4 = new Bunifu.Framework.UI.BunifuTileButton();
             this.bunifuTileButton3 = new Bunifu.Framework.UI.BunifuTileButton();
@@ -159,9 +159,8 @@ namespace SportCenter.Forms
             // 
             this.toplamgelir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(112)))), ((int)(((byte)(88)))));
             this.toplamgelir.color = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(112)))), ((int)(((byte)(88)))));
-            this.toplamgelir.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(193)))), ((int)(((byte)(184)))));
+            this.toplamgelir.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(112)))), ((int)(((byte)(88)))));
             this.toplamgelir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.toplamgelir.Enabled = false;
             this.toplamgelir.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toplamgelir.ForeColor = System.Drawing.Color.White;
             this.toplamgelir.Image = null;
@@ -188,7 +187,7 @@ namespace SportCenter.Forms
             this.toplamgelirlabel.TabIndex = 55;
             this.toplamgelirlabel.Text = "000 ₺";
             this.toplamgelirlabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.toplamgelirlabel.Click += new System.EventHandler(this.toplamgelirlabel_Click);
+            this.toplamgelirlabel.Click += new System.EventHandler(this.toplamgelir_Click);
             // 
             // saveBackupDialog
             // 
@@ -213,25 +212,25 @@ namespace SportCenter.Forms
             this.bunifuImageButton1.Zoom = 10;
             this.bunifuImageButton1.Click += new System.EventHandler(this.bunifuImageButton1_Click);
             // 
-            // bunifuTileButton1
+            // demirbaslistesi
             // 
-            this.bunifuTileButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(92)))), ((int)(((byte)(56)))));
-            this.bunifuTileButton1.color = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(92)))), ((int)(((byte)(56)))));
-            this.bunifuTileButton1.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(61)))), ((int)(((byte)(46)))));
-            this.bunifuTileButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuTileButton1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuTileButton1.ForeColor = System.Drawing.Color.White;
-            this.bunifuTileButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuTileButton1.Image")));
-            this.bunifuTileButton1.ImagePosition = 14;
-            this.bunifuTileButton1.ImageZoom = 50;
-            this.bunifuTileButton1.LabelPosition = 29;
-            this.bunifuTileButton1.LabelText = "Demirbaş Listesi";
-            this.bunifuTileButton1.Location = new System.Drawing.Point(654, 275);
-            this.bunifuTileButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.bunifuTileButton1.Name = "bunifuTileButton1";
-            this.bunifuTileButton1.Size = new System.Drawing.Size(205, 171);
-            this.bunifuTileButton1.TabIndex = 56;
-            this.bunifuTileButton1.Click += new System.EventHandler(this.bunifuTileButton1_Click);
+            this.demirbaslistesi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(92)))), ((int)(((byte)(56)))));
+            this.demirbaslistesi.color = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(92)))), ((int)(((byte)(56)))));
+            this.demirbaslistesi.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(61)))), ((int)(((byte)(46)))));
+            this.demirbaslistesi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.demirbaslistesi.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.demirbaslistesi.ForeColor = System.Drawing.Color.White;
+            this.demirbaslistesi.Image = ((System.Drawing.Image)(resources.GetObject("demirbaslistesi.Image")));
+            this.demirbaslistesi.ImagePosition = 14;
+            this.demirbaslistesi.ImageZoom = 50;
+            this.demirbaslistesi.LabelPosition = 29;
+            this.demirbaslistesi.LabelText = "Demirbaş Listesi";
+            this.demirbaslistesi.Location = new System.Drawing.Point(654, 275);
+            this.demirbaslistesi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.demirbaslistesi.Name = "demirbaslistesi";
+            this.demirbaslistesi.Size = new System.Drawing.Size(205, 171);
+            this.demirbaslistesi.TabIndex = 56;
+            this.demirbaslistesi.Click += new System.EventHandler(this.bunifuTileButton1_Click);
             // 
             // vtyedekle
             // 
@@ -253,25 +252,25 @@ namespace SportCenter.Forms
             this.vtyedekle.TabIndex = 48;
             this.vtyedekle.Click += new System.EventHandler(this.vtyedekle_Click);
             // 
-            // bunifuTileButton13
+            // planislemleri
             // 
-            this.bunifuTileButton13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(159)))), ((int)(((byte)(176)))));
-            this.bunifuTileButton13.color = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(159)))), ((int)(((byte)(176)))));
-            this.bunifuTileButton13.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(81)))), ((int)(((byte)(112)))));
-            this.bunifuTileButton13.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuTileButton13.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuTileButton13.ForeColor = System.Drawing.Color.White;
-            this.bunifuTileButton13.Image = ((System.Drawing.Image)(resources.GetObject("bunifuTileButton13.Image")));
-            this.bunifuTileButton13.ImagePosition = 14;
-            this.bunifuTileButton13.ImageZoom = 50;
-            this.bunifuTileButton13.LabelPosition = 29;
-            this.bunifuTileButton13.LabelText = "Üyelik Plan İşlemleri";
-            this.bunifuTileButton13.Location = new System.Drawing.Point(15, 275);
-            this.bunifuTileButton13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.bunifuTileButton13.Name = "bunifuTileButton13";
-            this.bunifuTileButton13.Size = new System.Drawing.Size(205, 171);
-            this.bunifuTileButton13.TabIndex = 47;
-            this.bunifuTileButton13.Click += new System.EventHandler(this.bunifuTileButton13_Click);
+            this.planislemleri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(159)))), ((int)(((byte)(176)))));
+            this.planislemleri.color = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(159)))), ((int)(((byte)(176)))));
+            this.planislemleri.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(81)))), ((int)(((byte)(112)))));
+            this.planislemleri.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.planislemleri.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.planislemleri.ForeColor = System.Drawing.Color.White;
+            this.planislemleri.Image = ((System.Drawing.Image)(resources.GetObject("planislemleri.Image")));
+            this.planislemleri.ImagePosition = 14;
+            this.planislemleri.ImageZoom = 50;
+            this.planislemleri.LabelPosition = 29;
+            this.planislemleri.LabelText = "Üyelik Plan İşlemleri";
+            this.planislemleri.Location = new System.Drawing.Point(15, 275);
+            this.planislemleri.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.planislemleri.Name = "planislemleri";
+            this.planislemleri.Size = new System.Drawing.Size(205, 171);
+            this.planislemleri.TabIndex = 47;
+            this.planislemleri.Click += new System.EventHandler(this.bunifuTileButton13_Click);
             // 
             // vtgeriyükle
             // 
@@ -353,25 +352,25 @@ namespace SportCenter.Forms
             this.personellistesi.TabIndex = 42;
             this.personellistesi.Click += new System.EventHandler(this.personellistesi_Click);
             // 
-            // personelkategorileri
+            // yetkilendirmeislemleri
             // 
-            this.personelkategorileri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(115)))), ((int)(((byte)(128)))));
-            this.personelkategorileri.color = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(115)))), ((int)(((byte)(128)))));
-            this.personelkategorileri.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(20)))), ((int)(((byte)(55)))));
-            this.personelkategorileri.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.personelkategorileri.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.personelkategorileri.ForeColor = System.Drawing.Color.White;
-            this.personelkategorileri.Image = ((System.Drawing.Image)(resources.GetObject("personelkategorileri.Image")));
-            this.personelkategorileri.ImagePosition = 13;
-            this.personelkategorileri.ImageZoom = 50;
-            this.personelkategorileri.LabelPosition = 26;
-            this.personelkategorileri.LabelText = "P.Yetkilendirme";
-            this.personelkategorileri.Location = new System.Drawing.Point(227, 275);
-            this.personelkategorileri.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.personelkategorileri.Name = "personelkategorileri";
-            this.personelkategorileri.Size = new System.Drawing.Size(205, 171);
-            this.personelkategorileri.TabIndex = 41;
-            this.personelkategorileri.Click += new System.EventHandler(this.personelkategorileri_Click);
+            this.yetkilendirmeislemleri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(115)))), ((int)(((byte)(128)))));
+            this.yetkilendirmeislemleri.color = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(115)))), ((int)(((byte)(128)))));
+            this.yetkilendirmeislemleri.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(20)))), ((int)(((byte)(55)))));
+            this.yetkilendirmeislemleri.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.yetkilendirmeislemleri.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yetkilendirmeislemleri.ForeColor = System.Drawing.Color.White;
+            this.yetkilendirmeislemleri.Image = ((System.Drawing.Image)(resources.GetObject("yetkilendirmeislemleri.Image")));
+            this.yetkilendirmeislemleri.ImagePosition = 13;
+            this.yetkilendirmeislemleri.ImageZoom = 50;
+            this.yetkilendirmeislemleri.LabelPosition = 26;
+            this.yetkilendirmeislemleri.LabelText = "P.Yetkilendirme";
+            this.yetkilendirmeislemleri.Location = new System.Drawing.Point(227, 275);
+            this.yetkilendirmeislemleri.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.yetkilendirmeislemleri.Name = "yetkilendirmeislemleri";
+            this.yetkilendirmeislemleri.Size = new System.Drawing.Size(205, 171);
+            this.yetkilendirmeislemleri.TabIndex = 41;
+            this.yetkilendirmeislemleri.Click += new System.EventHandler(this.personelkategorileri_Click);
             // 
             // yenipersonel
             // 
@@ -488,17 +487,17 @@ namespace SportCenter.Forms
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1300, 654);
             this.Controls.Add(this.bunifuImageButton1);
-            this.Controls.Add(this.bunifuTileButton1);
+            this.Controls.Add(this.demirbaslistesi);
             this.Controls.Add(this.toplamgelirlabel);
             this.Controls.Add(this.toplamgelir);
             this.Controls.Add(this.toplamuyelabel);
             this.Controls.Add(this.vtyedekle);
-            this.Controls.Add(this.bunifuTileButton13);
+            this.Controls.Add(this.planislemleri);
             this.Controls.Add(this.vtgeriyükle);
             this.Controls.Add(this.aktiviteekle);
             this.Controls.Add(this.üyelistesi);
             this.Controls.Add(this.personellistesi);
-            this.Controls.Add(this.personelkategorileri);
+            this.Controls.Add(this.yetkilendirmeislemleri);
             this.Controls.Add(this.yenipersonel);
             this.Controls.Add(this.bunifuTileButton4);
             this.Controls.Add(this.bunifuTileButton3);
@@ -534,12 +533,12 @@ namespace SportCenter.Forms
         private Bunifu.Framework.UI.BunifuTileButton bunifuTileButton3;
         private Bunifu.Framework.UI.BunifuTileButton bunifuTileButton4;
         private Bunifu.Framework.UI.BunifuTileButton yenipersonel;
-        private Bunifu.Framework.UI.BunifuTileButton personelkategorileri;
+        private Bunifu.Framework.UI.BunifuTileButton yetkilendirmeislemleri;
         private Bunifu.Framework.UI.BunifuTileButton personellistesi;
         private Bunifu.Framework.UI.BunifuTileButton üyelistesi;
         private Bunifu.Framework.UI.BunifuTileButton aktiviteekle;
         private Bunifu.Framework.UI.BunifuTileButton vtgeriyükle;
-        private Bunifu.Framework.UI.BunifuTileButton bunifuTileButton13;
+        private Bunifu.Framework.UI.BunifuTileButton planislemleri;
         private Bunifu.Framework.UI.BunifuTileButton vtyedekle;
         private Bunifu.Framework.UI.BunifuTileButton toplamuye;
         private Bunifu.Framework.UI.BunifuTileButton toplampersonel;
@@ -549,7 +548,7 @@ namespace SportCenter.Forms
         private System.Windows.Forms.Label toplamgelirlabel;
         private System.Windows.Forms.SaveFileDialog saveBackupDialog;
         private System.Windows.Forms.OpenFileDialog restorefileDialog;
-        private Bunifu.Framework.UI.BunifuTileButton bunifuTileButton1;
+        private Bunifu.Framework.UI.BunifuTileButton demirbaslistesi;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
     }
 }

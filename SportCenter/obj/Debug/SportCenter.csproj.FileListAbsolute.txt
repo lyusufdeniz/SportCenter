@@ -116,3 +116,4 @@ D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Forms.ÜyelikPlanla
 D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Forms.PersonelKategori.resources
 D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Forms.DemirbasEkle.resources
 D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Forms.DemirbasListesi.resources
+D:\Github Repo\SportCenter\SportCenter\obj\Debug\SportCenter.Forms.Gelirler.resources

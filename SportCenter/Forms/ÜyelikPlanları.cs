@@ -70,7 +70,8 @@ namespace SportCenter.Forms
         private void bunifuImageButton2_Click(object sender, EventArgs e)
         {
             guncelleSecPlanBox.Clear();
-            guncelleSecPlanBox.AddItem("Düzenlenecek Grup Seçiniz");
+            guncelleSecPlanBox.AddItem("Plan Seçiniz");
+            guncelleSecPlanBox.SelectedItem("Plan Seçiniz");
             for (int i = 0; i < db.getMembershipPlans().Count; i++)
             {
                 guncelleSecPlanBox.AddItem(db.getMembershipPlans()[i]);
@@ -79,7 +80,7 @@ namespace SportCenter.Forms
 
         private void guncelleButton_Click(object sender, EventArgs e)
         {
-            if(guncelleSecPlanBox.selectedIndex==0)
+            if(guncelleSecPlanBox.selectedValue== "Plan Seçiniz" || updatePlaneName== "Plan Seçiniz")
             {
                 MessageBox.Show("Plan Seçiniz"); return;
             }
@@ -95,6 +96,7 @@ namespace SportCenter.Forms
             {
                 MessageBox.Show("Ücret Alanı Doldurulmalıdır");return;
             }
+           
             updatednewName = guncelleAdBox.Text;
             updatePlanCost = guncelleUcret.Text;
             updateplanMonth = guncelleAyBox.selectedValue;

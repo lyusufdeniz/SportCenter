@@ -131,6 +131,7 @@ namespace SportCenter.Forms
         {
             selectForEdit.Clear();
             selectForEdit.AddItem("Düzenlenecek Grup Seçiniz");
+            selectForEdit.SelectedItem("Düzenlenecek Grup Seçiniz");
             for (int i = 0; i < db.getStaffCategories().Count; i++)
             {
                 selectForEdit.AddItem(db.getStaffCategories()[i]);

@@ -34,7 +34,6 @@ namespace SportCenter
             this.uidBox = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.pwBox = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.sifremiUnuttumButton = new Bunifu.Framework.UI.BunifuTileButton();
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.loginButton = new Bunifu.Framework.UI.BunifuTileButton();
             this.minimize = new Bunifu.Framework.UI.BunifuImageButton();
@@ -113,25 +112,6 @@ namespace SportCenter
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = false;
             // 
-            // sifremiUnuttumButton
-            // 
-            this.sifremiUnuttumButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(196)))), ((int)(((byte)(161)))));
-            this.sifremiUnuttumButton.color = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(196)))), ((int)(((byte)(161)))));
-            this.sifremiUnuttumButton.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(196)))), ((int)(((byte)(161)))));
-            this.sifremiUnuttumButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sifremiUnuttumButton.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sifremiUnuttumButton.ForeColor = System.Drawing.Color.White;
-            this.sifremiUnuttumButton.Image = ((System.Drawing.Image)(resources.GetObject("sifremiUnuttumButton.Image")));
-            this.sifremiUnuttumButton.ImagePosition = 13;
-            this.sifremiUnuttumButton.ImageZoom = 50;
-            this.sifremiUnuttumButton.LabelPosition = 27;
-            this.sifremiUnuttumButton.LabelText = "Şifremi Unuttum";
-            this.sifremiUnuttumButton.Location = new System.Drawing.Point(616, 228);
-            this.sifremiUnuttumButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.sifremiUnuttumButton.Name = "sifremiUnuttumButton";
-            this.sifremiUnuttumButton.Size = new System.Drawing.Size(164, 128);
-            this.sifremiUnuttumButton.TabIndex = 29;
-            // 
             // bunifuImageButton1
             // 
             this.bunifuImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.Image")));
@@ -159,7 +139,7 @@ namespace SportCenter
             this.loginButton.ImageZoom = 50;
             this.loginButton.LabelPosition = 41;
             this.loginButton.LabelText = "Giriş";
-            this.loginButton.Location = new System.Drawing.Point(616, 90);
+            this.loginButton.Location = new System.Drawing.Point(616, 165);
             this.loginButton.Margin = new System.Windows.Forms.Padding(6);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(164, 128);
@@ -187,7 +167,6 @@ namespace SportCenter
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(804, 373);
             this.Controls.Add(this.minimize);
-            this.Controls.Add(this.sifremiUnuttumButton);
             this.Controls.Add(this.bunifuSeparator1);
             this.Controls.Add(this.bunifuImageButton1);
             this.Controls.Add(this.loginButton);
@@ -215,7 +194,6 @@ namespace SportCenter
         private Bunifu.Framework.UI.BunifuTileButton loginButton;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
-        private Bunifu.Framework.UI.BunifuTileButton sifremiUnuttumButton;
         private Bunifu.Framework.UI.BunifuImageButton minimize;
     }
 }

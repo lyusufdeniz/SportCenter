@@ -887,7 +887,7 @@ namespace SportCenter.Classes
             try
             {
                 DbConnection.Connect();
-                query = "UPDATE StaffCategory  SET categoryName=@P1,categoryPermission=@P2 WHERE categoryName=@P3";
+                query = "UPDATE StaffCategory SET categoryName=@P1,categoryPermission=@P2 WHERE categoryName=@P3";
                 cmd = new SqlCommand(query, DbConnection.conn);
                 cmd.Parameters.AddWithValue("@P1", groupnewname);
                 cmd.Parameters.AddWithValue("@P2", permission);
@@ -934,8 +934,11 @@ namespace SportCenter.Classes
             {
                 switch (ex.Number)
                 {
-                    case 2627:
-                        MessageBox.Show("Aynı Ada ait 1 group zaten bulunmakta!");
+                    case 547:
+                        MessageBox.Show("Eşyaa değeri 0'dan büyük olmalıdır!!");
+                        return false;
+                    case 235:
+                        MessageBox.Show("Eşyaa değeri ve adeti sayısal olmalıdır!");
                         return false;
                     default:
                         MessageBox.Show(ex.ToString());
@@ -958,6 +961,31 @@ namespace SportCenter.Classes
 
 
                 da.Fill(ds, "inventoryTable");
+                DbConnection.Disconnect();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return ds;
+            }
+
+
+        }
+
+        public DataSet getPayments()
+        {
+
+            try
+            {
+                ds.Clear();
+
+                DbConnection.Connect();
+                query = "exec SP_GelirSorgu";
+                da = new SqlDataAdapter(query, DbConnection.conn);
+
+
+                da.Fill(ds, "paymentTable");
                 DbConnection.Disconnect();
                 return ds;
             }

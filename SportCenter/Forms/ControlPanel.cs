@@ -29,13 +29,27 @@ namespace SportCenter.Forms
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-        public ControlPanel()
+        public ControlPanel(int pCategory)
         {
             InitializeComponent();
             toplamuyelabel.Text = db.countMembers().ToString();
             toplampersomellabel.Text= db.countStaff().ToString();
-
             toplamgelirlabel.Text = db.totalIncome()+ "\n ₺";
+
+            if(pCategory==1)
+            {
+                planislemleri.Enabled = false;
+                yetkilendirmeislemleri.Enabled = false;
+                aktiviteekle.Enabled = false;
+                demirbaslistesi.Enabled = false;
+                vtgeriyükle.Enabled = false;
+                vtyedekle.Enabled = false;
+                planislemleri.Enabled = false;
+                toplamgelirlabel.Text = "???.?? ₺";
+                toplamgelir.Enabled = false;
+                toplamgelirlabel.Enabled = false;
+                yenipersonel.Enabled = false;
+            }
         }
 
         private void close_Click(object sender, EventArgs e)
@@ -60,7 +74,8 @@ namespace SportCenter.Forms
 
         private void toplamgelir_Click(object sender, EventArgs e)
         {
-
+            Gelirler gelirler = new Gelirler();
+            gelirler.Show();
         }
 
         private void toplamuye_Click(object sender, EventArgs e)
