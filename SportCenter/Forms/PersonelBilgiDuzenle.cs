@@ -62,6 +62,11 @@ namespace SportCenter.Forms
             dogumtar = dogumtarihiBox.Value.ToString("yyyy-MM-dd");
         }
 
+        private void eposstaTextbox_OnValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
         int staffID;
 
         private void bunifuTileButton1_Click(object sender, EventArgs e)

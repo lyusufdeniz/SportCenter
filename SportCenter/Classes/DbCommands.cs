@@ -548,7 +548,7 @@ namespace SportCenter.Classes
 
 
                     case 2627:
-                        MessageBox.Show("Aynı tc kimlik numarası veya kullanıcı adıyla kayıtlı bir personel bulunmaktadır");
+                        MessageBox.Show("Aynı tc kimlik numarası,kullanıcı adı veya e postayla kayıtlı bir personel bulunmaktadır");
                         return false;
                     case 2628:
                         MessageBox.Show("Alanlar çok uzun doldurulmamalıdır");
@@ -947,7 +947,6 @@ namespace SportCenter.Classes
 
             }
         }
-
         public DataSet getInventoryList()
         {
 
@@ -972,7 +971,6 @@ namespace SportCenter.Classes
 
 
         }
-
         public DataSet getPayments()
         {
 

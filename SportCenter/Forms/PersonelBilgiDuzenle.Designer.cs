@@ -153,6 +153,7 @@ namespace SportCenter.Forms
             this.eposstaTextbox.Size = new System.Drawing.Size(417, 45);
             this.eposstaTextbox.TabIndex = 87;
             this.eposstaTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.eposstaTextbox.OnValueChanged += new System.EventHandler(this.eposstaTextbox_OnValueChanged);
             // 
             // tcTextbox
             // 

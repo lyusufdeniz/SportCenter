@@ -312,7 +312,7 @@ namespace SportCenter.Forms
             this.gsmBox.LineThickness = 3;
             this.gsmBox.Location = new System.Drawing.Point(21, 436);
             this.gsmBox.Margin = new System.Windows.Forms.Padding(4);
-            this.gsmBox.MaxLength = 32767;
+            this.gsmBox.MaxLength = 11;
             this.gsmBox.Name = "gsmBox";
             this.gsmBox.Size = new System.Drawing.Size(417, 45);
             this.gsmBox.TabIndex = 57;
